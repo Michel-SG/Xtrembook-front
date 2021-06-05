@@ -1,0 +1,39 @@
+#menu, ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: var(--bs-orange);
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    line-height: 2rem;
+}
+
+li~li::before {
+    content: "|";
+    font-size: x-large;
+    margin-right: 0.3rem;
+}
+
+li~li {
+    margin-left: 0.3rem;
+}
+
+a {
+    color: var(--bs-dark);
+    font-size: x-large;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--bs-gray);
+}
+
+.active a {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
