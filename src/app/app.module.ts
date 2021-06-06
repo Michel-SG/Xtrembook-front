@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './composants/menu/menu.component';
@@ -10,6 +10,7 @@ import { InscriptionComponent } from './composants/auth/inscription/inscription.
 import { CommandeComponent } from './composants/commande/commande.component';
 import { PanierComponent } from './composants/panier/panier.component';
 import { LivreUniqueComponent } from './composants/livre-unique/livre-unique.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { LivreUniqueComponent } from './composants/livre-unique/livre-unique.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
