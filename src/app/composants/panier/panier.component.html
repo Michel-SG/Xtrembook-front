@@ -1,1 +1,17 @@
-<p>panier works!</p>
+<form (ngSubmit)=passerCommande()>
+    <div>Articles ajoutés au panier :</div>
+    <ul *ngFor="let article of panier">
+        <li class="article">
+            <div>{{ article.nom }} :</div>
+            <div><input type=number [value]="[article.quantite]"></div>
+            <div>{{ article.prix }}€</div>
+        </li>
+    </ul>
+    <div>Prix total : {{ prixtotal }}€</div>
+    <div>
+        <button type="button" class="btn btn-info" (click)="calculerPrixTotal()">Calculer</button>
+    </div>
+    <div>
+        <button class="btn btn-warning">Valider ma commande</button>
+    </div>
+</form>
