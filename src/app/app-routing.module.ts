@@ -8,6 +8,7 @@ import { InscriptionComponent } from './composants/auth/inscription/inscription.
 import { CommandeComponent } from './composants/commande/commande.component';
 import { PanierComponent } from './composants/panier/panier.component';
 import { LivreUniqueComponent } from './composants/livre-unique/livre-unique.component';
+import { CommandeValideeComponent } from './composants/commande-validee/commande-validee.component';
 
 const routes: Routes = [
   {path: 'auth/connexion', component: ConnexionComponent},
@@ -16,9 +17,11 @@ const routes: Routes = [
   {path: 'article/livreUnique/:id', component: LivreUniqueComponent},
   {path: 'menu', component: MenuComponent},
   {path: 'article/commande', component: CommandeComponent},
+  {path: 'commande-validee', component: CommandeValideeComponent},
   {path: 'article/panier', component: PanierComponent},
   {path: '', pathMatch: 'full', redirectTo: 'article'},
   {path: '**',redirectTo: 'article'}
+
   
 ];
 
