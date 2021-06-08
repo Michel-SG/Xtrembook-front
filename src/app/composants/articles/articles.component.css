@@ -1,0 +1,18 @@
+#body {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 500px) ;
+
+}
+
+#card {
+    display: flex;
+    flex-direction: column;
+    background-color:whitesmoke;
+    width: 400px;
+}
+
+#image {
+    width: 400px;
+    height: 40vh;
+
+}
