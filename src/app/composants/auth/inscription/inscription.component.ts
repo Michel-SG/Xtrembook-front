@@ -30,4 +30,15 @@ export class InscriptionComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmitForm() {
+    this.authService.createUser(this.signupForm.value)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error)=>{
+        console.error(error)
+      })
+
+  }
+
 }
