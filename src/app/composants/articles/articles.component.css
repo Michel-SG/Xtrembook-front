@@ -9,10 +9,10 @@
     flex-direction: column;
     background-color:whitesmoke;
     width: 400px;
+    height: 500px;
 }
 
 #image {
     width: 400px;
-    height: 40vh;
-
+    height: 350px;
 }

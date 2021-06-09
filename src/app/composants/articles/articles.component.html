@@ -3,8 +3,9 @@
 <div id="body">
     <div *ngFor="let a of articles" id="card" >
         <img src={{a.imageUrl}} id="image"/>
-        Titre: {{ a.titre }} <br>
-        Résumé: {{  a.resumed }} <br>
+        <h4>{{ a.titre }} </h4>
+        Description: <br>
+        {{ a.resumed }} <br>
         Prix: {{ a.prixUnit }} €
         <button class="btn btn-success">Détails</button>
     </div>
