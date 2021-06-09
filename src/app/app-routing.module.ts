@@ -14,7 +14,6 @@ const routes: Routes = [
   {path: 'auth/inscription', component: InscriptionComponent},
   {path: 'article', component: ArticlesComponent},
   {path: 'article/livreUnique/:id', component: LivreUniqueComponent},
-  {path: 'menu', component: MenuComponent},
   {path: 'article/commande', component: CommandeComponent},
   {path: 'article/panier', component: PanierComponent},
   {path: '', pathMatch: 'full', redirectTo: 'article'},
