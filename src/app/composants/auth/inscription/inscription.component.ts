@@ -35,7 +35,7 @@ export class InscriptionComponent implements OnInit {
   onSubmitForm() {
     this.authService.createUser(this.signupForm.value)
       .then((response) => {
-        console.log("dans component "+response);
+        console.log(response);
         this.router.navigate(['/auth','connexion']);
       })
       .catch((error)=>{
