@@ -1,0 +1,24 @@
+th {
+background-color: #EAEAEA; 
+color: #EA6A0B;
+}
+
+#btop {
+border-top-style: solid; 
+border-top-width: 5px;
+border-top-color: #7A809E;
+padding-top: 10px;
+margin-top:20px;
+}
+
+#pan {
+    border-radius: 5px;
+    background-color:#EA6A0B;
+    color: white;
+    width: 200px;
+    height: 30px;
+}
+
+h3 {
+    Color: #707070;
+}
