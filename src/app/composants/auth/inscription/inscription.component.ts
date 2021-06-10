@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
@@ -25,7 +26,8 @@ export class InscriptionComponent implements OnInit {
   });
 
   constructor(private formBuilder: FormBuilder,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -33,7 +35,8 @@ export class InscriptionComponent implements OnInit {
   onSubmitForm() {
     this.authService.createUser(this.signupForm.value)
       .then((response) => {
-        console.log(response);
+        console.log("dans component "+response);
+        this.router.navigate(['/auth','connexion']);
       })
       .catch((error)=>{
         console.error(error)
