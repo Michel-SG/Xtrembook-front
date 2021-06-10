@@ -21,6 +21,9 @@ export class ConnexionComponent implements OnInit {
     private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+
+  }
+    onSubmitForm(){
     this.auth.loginUser(this.signinForm.value)
       .then(() => {
         this.loading = false;
@@ -29,7 +32,7 @@ export class ConnexionComponent implements OnInit {
         (error) => {
           this.loading = false;
           console.error(error);
-          this.errorMsg = error.message;
+          this.errorMsg = "Désolé, votre mot de passe ou email n'est pas correct";
         })
   }
 

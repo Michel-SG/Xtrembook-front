@@ -42,7 +42,7 @@ export class InscriptionComponent implements OnInit {
       .catch((error)=>{
         this.loading = false;
         console.error(error);
-        this.errorMsg = error.message;
+        this.errorMsg = "Veuillez remplir tous les champs";
       })
 
   }
