@@ -13,7 +13,7 @@ import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {path: 'auth/connexion',  component: ConnexionComponent},
-  {path: 'auth/inscription',canActivate: [AuthGuard], component: InscriptionComponent},
+  {path: 'auth/inscription', component: InscriptionComponent},
   {path: 'article', component: ArticlesComponent},
   {path: 'article/livreUnique/:id', component: LivreUniqueComponent},
   {path: 'article/commande', canActivate: [AuthGuard], component: CommandeComponent},

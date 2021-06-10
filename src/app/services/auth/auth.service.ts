@@ -49,4 +49,9 @@ export class AuthService {
   getPrenom(){
     return this.prenom;
   }
+  logout() {
+    this.userId = null;
+    this.isAuth$.next(false);
+    this.router.navigate(["/article"]);
+  }
 }

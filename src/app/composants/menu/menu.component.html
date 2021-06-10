@@ -1,8 +1,10 @@
-<nav class="navbar navbar-expand-lg col  bg-light">
+<!-- <nav class="navbar navbar-expand-lg col  bg-light">
     <div class="container-fluid">
         <a class="navbar-brand col" routerLink=''><img src="assets/ib_librairie.png" width="100%"></a>
         <div class="col-7"></div>
         <div class="collapse navbar-collapse col" id="navbarNavDropdown">
+            <li class="nav-item navbar" routerLinkActive=active><a routerLink='panier' class="nav-link"> Panier</a>
+            </li>
             <ul class="navbar-nav col-4">
                 <li class="nav-item navbar" style="display: none"><a routerLink='#' class="nav-link">Se déconnecter</a>
                 </li>
@@ -18,12 +20,47 @@
                     </ul>
                 </li>
             </ul>
+           
             <li class="nav-item navbar" routerLinkActive=active><a routerLink='panier' class="nav-link"><i
                         class="fas fa-shopping-cart"></i> Panier</a>
             </li>
             <li class="nav-item navbar" routerLinkActive=active><a routerLink='panier' class="nav-link"> Déconnexion</a>
-    </li>
+            </li>
         </div>
 
     </div>
-</nav>
+</nav> -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink='books'><img src="assets/ib_librairie.png" width="110"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+        aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <form class="d-flex ms-auto"  >
+          <input class="form-control me-sm-2 " type="text" placeholder="Recherche par mot-clé" formControlName="mots">
+          <button class="btn btn-secondary my-2 my-sm-0" type="submit" >Search</button>
+        </form>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item" routerLinkActive=active [routerLinkActiveOptions]="{ exact: true }">
+            <a class="nav-link" routerLink='article'>Articles
+              <span class="visually-hidden">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink='auth/connexion'>Connexion</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink='auth/inscription'>Inscription</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" (click)="onLogout()" style="cursor: pointer">Déconnexion</a>
+          </li>
+          
+          <li class="nav-item px-1" ><i class="fas fa-cart-arrow-down" [routerLink]="['/article/panier/']" style="cursor: pointer" ></i></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
