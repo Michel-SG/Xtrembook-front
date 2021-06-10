@@ -14,6 +14,7 @@ import { LivreUniqueComponent } from './composants/livre-unique/livre-unique.com
 import { CommandeValideeComponent } from './composants/commande-validee/commande-validee.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import { CommandeValideeComponent } from './composants/commande-validee/commande
     CommandeComponent,
     PanierComponent,
     LivreUniqueComponent,
-    CommandeValideeComponent
+    CommandeValideeComponent,
+   
   ],
   imports: [
     BrowserModule,
