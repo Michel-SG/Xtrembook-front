@@ -1,9 +1,10 @@
-export interface Livre {
-    referenceArticle?: number,
-    titre?: string,
-    resumed?: string,
-    prixUnit?: number,
-    stock?: number,
-    imageUrl?: string,
-    isbn13?: string
+import { Articles } from "./articles";
+
+export interface Livre extends Articles {
+    isbn13?: string,
+    formatLivre?: string,
+    genre?: string,
+    nomEditeur?: string,
+    nom?: string,
+    prenom?: string
 }
