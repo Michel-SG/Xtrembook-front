@@ -14,7 +14,7 @@ const routes: Routes = [
   {path: 'auth/connexion', component: ConnexionComponent},
   {path: 'auth/inscription', component: InscriptionComponent},
   {path: 'article', component: ArticlesComponent},
-  {path: 'article/livreUnique/:id', component: LivreUniqueComponent},
+  {path: 'article/livreUnique', component: LivreUniqueComponent},
   {path: 'menu', component: MenuComponent},
   {path: 'article/commande', component: CommandeComponent},
   {path: 'commande-validee', component: CommandeValideeComponent},
