@@ -1,8 +1,13 @@
 
 <h1>Liste des articles</h1>
-<ul>
-    <li *ngFor="let a of articles">
-        {{ a.titre}}  {{  a.resumed }}
-    </li>
-</ul>
+<div id="body">
+    <div *ngFor="let a of articles" id="card" >
+        <img src={{a.imageUrl}} id="image"/>
+        <h4>{{ a.titre }} </h4>
+        Description: <br>
+        {{ a.resumed }} <br>
+        Prix: {{ a.prixUnit }} €
+        <button class="btn btn-success">Détails</button>
+    </div>
+</div>
 
