@@ -10,6 +10,8 @@ import { environment } from '../../../environments/environment';
 })
 export class AuthService {
   host = environment.host;
+  private userId: number;
+  private prenom: string;
   isAuth$ = new BehaviorSubject<boolean>(false);
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -26,4 +28,21 @@ export class AuthService {
 
     });
   }
+
+  loginUser(user: User) {
+    return new Promise((resolve, reject) => {
+      this.http.post(this.host + "/api/user/login", user)
+        .subscribe((response: User) => {
+          this.userId = response.id;
+          this.prenom = response.prenom;
+          this.isAuth$.next(true);
+          resolve(response);
+        },
+        (error)=>{
+          reject(error);
+        })
+    })
+  }
 }
+
+
