@@ -1,4 +1,25 @@
-<p>panier works!</p>
+<form>
+    <h3>Articles ajoutés au panier :</h3>
+    <ul *ngFor="let article of panier; let i = index">
+        <li class="article">
+            <div>{{ article.article.titre }} (prix unitaire : {{ article.article.prixUnit }}€) :</div>
+            <div>
+                <div>Quantité : {{ article.quantite }}</div>
+                <button (click)="modifierQuantite(i, '+')"><i class="fas fa-plus"></i></button>
+                <button (click)="modifierQuantite(i, '-')"><i class="fas fa-minus"></i></button>
+                <button (click)="supprimerArticle(i)"><i class="fas fa-trash-alt"></i></button>
+            </div>
+            <div>Prix : {{ article.article.prixUnit*article.quantite }}€</div>
+        </li>
+    </ul>
+    <div>
+        Prix total : {{ prixTotal }} €
+    </div>
+    <div>
+        <button type="button" (click)=passerCommande() class="btn btn-warning">Valider ma commande</button>
+    </div>
+</form>
+<!--
 <div class="container fw-bold vw-100">
     <!-- <p class=" margeBook text-center" >Hoopsss Votre panier est vide</p> -->
     <table class="table margeBook" >
@@ -41,4 +62,4 @@
                     class="far fa-credit-card"></i> Passer la commande</button></p>
     </div>
    
-</div>
+</div>-->

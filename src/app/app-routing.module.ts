@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { MenuComponent } from './composants/menu/menu.component';
 import { ArticlesComponent } from './composants/articles/articles.component';
 import { ConnexionComponent } from './composants/auth/connexion/connexion.component';
@@ -21,8 +20,6 @@ const routes: Routes = [
   {path: 'article/panier', component: PanierComponent},
   {path: '', pathMatch: 'full', redirectTo: 'article'},
   {path: '**',redirectTo: 'article'}
-
-  
 ];
 
 @NgModule({
