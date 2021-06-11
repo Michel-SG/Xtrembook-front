@@ -1,4 +1,4 @@
-li {
+/* li {
     line-height: 2rem;
 }
 
@@ -8,4 +8,16 @@ a {
 
 a:hover {
     color: var(--bs-gray);
+} */
+.nav-link {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button:hover {
+    background-color: green;
+    border: 1px solid green;
+}
+.fa-cart-arrow-down{
+    color: var(--bs-white);
+   
 }

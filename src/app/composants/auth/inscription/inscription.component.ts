@@ -9,7 +9,8 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   styleUrls: ['./inscription.component.css']
 })
 export class InscriptionComponent implements OnInit {
-
+  loading: boolean;
+  errorMsg: string;
   signupForm = this.formBuilder.group({
     nom: ['', Validators.required],
     prenom: ['', Validators.required],
@@ -39,7 +40,9 @@ export class InscriptionComponent implements OnInit {
         this.router.navigate(['/auth','connexion']);
       })
       .catch((error)=>{
-        console.error(error)
+        this.loading = false;
+        console.error(error);
+        this.errorMsg = "Veuillez remplir tous les champs";
       })
 
   }

@@ -1,7 +1,7 @@
 <div class="container marge fw-bold">
     <h2 class="text-center mt-4">Inscrivez-vous</h2>
     <form [formGroup]="signupForm" (ngSubmit)="onSubmitForm()"
-        class='d-flex flex-column justify-content-center align-items-center fs-auto mb-3'>
+        class='d-flex flex-column justify-content-center align-items-center fs-auto mb-3' *ngIf="!loading">
         <div class="form-group w-50 mb-1">
             <label for="nom">Nom</label>
             <input type="text" class="form-control" id="nom" placeholder="Entrer votre nom" formControlName="nom">
@@ -53,6 +53,7 @@
             </div>
         </div>
         <button type="submit" class="btn btn-primary fs-auto" [disabled]="signupForm.invalid">Envoyer</button>
+        <p class="text-danger" *ngIf="errorMsg"> {{ errorMsg }} </p>
     </form>
     <p class="text-center">Avez-vous déjà un compte ?
         <a class="link" [routerLink]="['/auth/','connexion']">Clickez ici pour vous connecter</a>
