@@ -11,11 +11,12 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 export class MenuComponent implements OnInit {
   prenom: string;
   searchForm = this.formBuilder.group({
-    mots: ['', Validators.required]
+    parameter: ['', Validators.required]
   });
   constructor(private auth: AuthService,
     private formBuilder: FormBuilder, 
-    private search: ArticleService) { }
+    private search: ArticleService,
+    private articleService: ArticleService) { }
 
   ngOnInit(): void {
     setInterval(()=>{
@@ -24,9 +25,7 @@ export class MenuComponent implements OnInit {
     
     
   }
-  onSubmitSearch(){
-    this.search.submitSearch(this.searchForm.value.mots)
-  }
+
   onLogout() {
     this.auth.logout();
   }
