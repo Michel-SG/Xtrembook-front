@@ -28,4 +28,8 @@ export class ArticlesComponent implements OnInit {
       console.log(res);
     });
   }
+
+  ajouterAuPanier(article){
+    this.panierService.ajoutArticle(article);
+  }
 }
