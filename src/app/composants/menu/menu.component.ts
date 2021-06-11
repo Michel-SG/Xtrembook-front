@@ -11,7 +11,8 @@ export class MenuComponent implements OnInit {
   constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
-    this.prenom = this.auth.getPrenom();
+    this.prenom = JSON.parse(localStorage.getItem('userName'));
+    
   }
   onLogout() {
     this.auth.logout();
