@@ -19,7 +19,7 @@ const routes: Routes = [
   {path: 'livre/:referenceArticle', component: LivreUniqueComponent},
   {path: 'article/commande', component: CommandeComponent},
   {path: 'commande-validee', component: CommandeValideeComponent},
-  {path: 'article/panier', component: PanierComponent},
+  {path: 'panier', component: PanierComponent},
   {path: '', pathMatch: 'full', redirectTo: 'article'},
   {path: '**',redirectTo: 'article'}
 ];

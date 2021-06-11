@@ -45,4 +45,8 @@ export class ArticlesComponent implements OnInit {
       console.log(this.reponses);
     })
   }
+
+  ajouterAuPanier(article){
+    this.panierService.ajoutArticle(article);
+  }
 }
