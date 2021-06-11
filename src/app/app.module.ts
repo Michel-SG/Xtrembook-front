@@ -15,6 +15,8 @@ import { CommandeValideeComponent } from './composants/commande-validee/commande
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +28,8 @@ import { CommandeValideeComponent } from './composants/commande-validee/commande
     PanierComponent,
     LivreUniqueComponent,
     CommandeValideeComponent,
+   
+   
    
   ],
   imports: [
