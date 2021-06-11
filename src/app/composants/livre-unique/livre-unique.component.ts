@@ -24,7 +24,8 @@ initialize() {
       console.log(this.referenceArticle)
       this.articlesService.getOneById(this.referenceArticle).subscribe((res) => {
         this.livre = res;
-        console.log(this.livre)
+        console.log(this.livre);
+        console.log(this.livre.auteurs);
       });
     });
   }

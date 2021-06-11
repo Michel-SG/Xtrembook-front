@@ -1,10 +1,10 @@
 import { Articles } from "./articles";
+import { Auteur } from "./auteur";
 
 export interface Livre extends Articles {
     isbn13?: string,
     formatLivre?: string,
     genre?: string,
     nomEditeur?: string,
-    nom?: string,
-    prenom?: string
+    auteurs?: Auteur[]
 }
