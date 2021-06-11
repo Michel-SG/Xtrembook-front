@@ -1,13 +1,15 @@
-
-<h1>Liste des articles</h1>
-<div id="body">
-    <div *ngFor="let a of articles" id="card" >
-        <img src={{a.imageUrl}} id="image"/>
-        <h4>{{ a.titre }} </h4>
-        Description: <br>
-        {{ a.resumed }} <br>
-        Prix: {{ a.prixUnit }} €
-        <button class="btn btn-success">Détails</button>
+<div class="contain">
+    <h2 class="text-center">Liste des articles</h2>
+    <div id="body">
+        <div *ngFor="let a of articles" id="card">
+            <div class="mw-100 overflow-hidden">
+                <a><img src={{a.imageUrl}} id="image" class="w-100 rounded-top " /> </a>
+            </div>
+            <h4>{{ a.titre }} </h4>
+            Description: <br>
+            {{ a.resumed }} <br>
+            Prix: {{ a.prixUnit }} €
+            <button class="btn btn-success">Détails</button>
+        </div>
     </div>
 </div>
-
