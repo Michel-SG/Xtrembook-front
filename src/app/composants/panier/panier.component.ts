@@ -25,7 +25,7 @@ export class PanierComponent implements OnInit {
     this.prixTotal = this.panierService.calculTotal();
   }
   onCommander() {
-    this.router.navigate(['article/','commande']);
+    // this.router.navigate(['article/','commande']);
   }
 
   passerCommande() {

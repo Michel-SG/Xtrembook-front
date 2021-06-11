@@ -1,5 +1,5 @@
-<form>
-    <h3>Articles ajoutés au panier :</h3>
+<form class="margePanier">
+    <h3 >Articles ajoutés au panier :</h3>
     <ul *ngFor="let article of panier; let i = index">
         <li class="article">
             <div>{{ article.article.titre }} (prix unitaire : {{ article.article.prixUnit }}€) :</div>
@@ -21,8 +21,8 @@
 </form>
 <!--
 <div class="container fw-bold vw-100">
-    <!-- <p class=" margeBook text-center" >Hoopsss Votre panier est vide</p> -->
-    <table class="table margeBook" >
+     <p class=" margeBook text-center" >Hoopsss Votre panier est vide</p> -->
+    <!--<table class="table margeBook" >
         <thead class="table-dark">
             <tr>
                 <th scope="col-md">Image</th>
