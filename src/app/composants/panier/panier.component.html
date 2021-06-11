@@ -1,44 +1,33 @@
-<div class="container fw-bold vw-100 margePanier">
-    <table class="table margeBook">
-        <thead class="table-dark">
-            <tr>
-                <th scope="col-md">Article</th>
-                <th scope="col-md">Prix unitaire</th>
-                <th scope="col-md">Quantité</th>
-                <th scope="col-md">Prix</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let article of panier; let i = index">
-                <th scope="row">
-                    <div class="d-flex flex-row">
-                        <div class="mw-25 overflow-hidden">
-                            <a [routerLink]="['/article/livreUnique/']"><img class="card-img-top  rounded-top"
-                                    alt="image de l'article"></a>
-                        </div>
-                        <div>
-                            <h3>{{ article.article.titre }}</h3>
-                        </div>
-                    </div>
-                </th>
-                <td>{{ article.article.prixUnit}}€</td>
-                <td>
-                    <div class="d-flex flex-row">
-                        <button (click)="modifierQuantite(i, '-')"><i class="fas fa-minus"></i></button>
-                        <p>{{ article.quantite }}</p>
-                        <button (click)="modifierQuantite(i, '+')"><i class="fas fa-plus"></i></button>
-                    </div>
-                </td>
-                <td class="d-flex flex-row">
-                    <p>{{ article.article.prixUnit*article.quantite }}€</p>
-                    <button (click)="supprimerArticle(i)"><i class="fas fa-trash-alt"></i></button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <p>Prix total : {{ prixTotal }} €</p>
+<form class="margePanier">
+    <h3 >Articles ajoutés au panier :</h3>
+    <ul *ngFor="let article of panier; let i = index">
+        <li class="article" *ngIf="article.article.stock >= article.quantite; else sinon">
+            <img src={{article.article.imageUrl}}/>
+            <div>{{ article.article.titre }} (prix unitaire : {{ article.article.prixUnit }}€) :</div>
+            <div>
+                <div>Quantité : {{ article.quantite }}</div>
+                <button (click)="modifierQuantite(i, '+')"><i class="fas fa-plus"></i></button>
+                <button (click)="modifierQuantite(i, '-')"><i class="fas fa-minus"></i></button>
+                <button (click)="supprimerArticle(i)"><i class="fas fa-trash-alt"></i></button>
+            </div>
+        </li>
+        <ng-template #sinon>
+            <li class="pasenstock">
+                <div>{{ article.article.titre }} (prix unitaire : {{ article.article.prixUnit }}€) :</div>
+            <div>
+                <div>Quantité : {{ article.quantite }}</div>
+                <button (click)="modifierQuantite(i, '+')"><i class="fas fa-plus"></i></button>
+                <button (click)="modifierQuantite(i, '-')"><i class="fas fa-minus"></i></button>
+                <button (click)="supprimerArticle(i)"><i class="fas fa-trash-alt"></i></button>
+            </div>
+            <p>Cet article n'est pas disponible en quantité suffisante.</p>
+            </li>
+        </ng-template>
+    </ul>
     <div>
-        <button type="button" (click)=passerCommande() class="btn btn-warning"><i class="far fa-credit-card"></i>
-            Valider ma commande</button>
+        Prix total : {{ prixTotal }} €
     </div>
-</div>
+    <div>
+        <button type="button" (click)=passerCommande() class="btn btn-warning">Valider ma commande</button>
+    </div>
+</form>

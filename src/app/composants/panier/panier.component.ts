@@ -27,6 +27,8 @@ export class PanierComponent implements OnInit {
     }
     //Récupération du prix total pour l'afficher
     this.prixTotal = this.panierService.calculTotal();
+
+    console.log(this.panier[1].article.imageUrl);
   }
 
   modifierQuantite(idArticle, op) {
