@@ -10,6 +10,7 @@ import { PanierService } from 'src/app/services/panier/panier.service';
   styleUrls: ['./articles.component.css'],
 })
 export class ArticlesComponent implements OnInit {
+
   searchForm = this.formBuilder.group({
     parameter: ['', Validators.required]
   });
@@ -25,6 +26,8 @@ export class ArticlesComponent implements OnInit {
 
   ngOnInit(): void {
     this.initialize();
+    
+    
   }
 
   initialize() {
@@ -34,6 +37,7 @@ export class ArticlesComponent implements OnInit {
       console.log(res);
     });
   }
+
   onSubmitSearch(){
     console.log(this.searchForm.value);
     this.articlesService.getAllByParameter(this.searchForm.value).subscribe((res) => {

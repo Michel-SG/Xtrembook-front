@@ -19,13 +19,13 @@ export class MenuComponent implements OnInit {
     private articleService: ArticleService) { }
 
   ngOnInit(): void {
-    this.prenom = JSON.parse(localStorage.getItem('userName'));
+    setInterval(()=>{
+      this.prenom = JSON.parse(localStorage.getItem('userName'));
+    },200)
+    
     
   }
-  onSubmitSearch(){
-    console.log(this.searchForm.value);
-    this.articleService.getAllByParameter(this.searchForm.value).subscribe()
-  }
+
   onLogout() {
     this.auth.logout();
   }

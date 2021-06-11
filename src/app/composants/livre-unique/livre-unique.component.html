@@ -17,7 +17,9 @@
                 <div class="col-sm-6">
                     <h4>Prix : {{ this.livre.prixUnit }} €</h4>
                 </div>
-                <div class="col-sm-6"> <button id="pan">Ajouter au panier</button></div>
+                <div class="col-sm-6">
+                    <button id="pan" (click)="ajouterAuPanier(this.livre)">Ajouter au panier</button>
+                </div>
             </div>
             <h4 id="btop">Description</h4>
             <p> {{ this.livre.resumed }}

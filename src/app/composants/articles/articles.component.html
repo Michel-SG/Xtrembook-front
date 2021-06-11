@@ -14,9 +14,13 @@
             Description: <br>
             {{ a.resumed }} <br>
             Prix: {{ a.prixUnit }} €
-             <button class="btn btn-success" [routerLink]='["/livre", a.referenceArticle]' >Détails</button>
+            <div class="text-center">
+                <button class="btn btn-success" [routerLink]='["/livre", a.referenceArticle]'>Détails</button>
+                <button class="btn btn-info" (click)="ajouterAuPanier(a)">Acheter</button>
+            </div>
         </div>
     </div>
+
     <div id="body" *ngIf="reponses != null">
         <div *ngFor="let a of reponses" id="card">
             <div class="mw-100 overflow-hidden">
@@ -30,3 +34,4 @@
         </div>
     </div>
 </div>
+

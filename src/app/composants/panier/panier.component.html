@@ -1,7 +1,7 @@
 <form class="margePanier">
     <h3 >Articles ajoutés au panier :</h3>
     <ul *ngFor="let article of panier; let i = index">
-        <li class="article">
+        <li class="article" *ngIf="article.article.stock >= article.quantite; else sinon">
             <div>{{ article.article.titre }} (prix unitaire : {{ article.article.prixUnit }}€) :</div>
             <div>
                 <div>Quantité : {{ article.quantite }}</div>
@@ -9,8 +9,19 @@
                 <button (click)="modifierQuantite(i, '-')"><i class="fas fa-minus"></i></button>
                 <button (click)="supprimerArticle(i)"><i class="fas fa-trash-alt"></i></button>
             </div>
-            <div>Prix : {{ article.article.prixUnit*article.quantite }}€</div>
         </li>
+        <ng-template #sinon>
+            <li class="pasenstock">
+                <div>{{ article.article.titre }} (prix unitaire : {{ article.article.prixUnit }}€) :</div>
+            <div>
+                <div>Quantité : {{ article.quantite }}</div>
+                <button (click)="modifierQuantite(i, '+')"><i class="fas fa-plus"></i></button>
+                <button (click)="modifierQuantite(i, '-')"><i class="fas fa-minus"></i></button>
+                <button (click)="supprimerArticle(i)"><i class="fas fa-trash-alt"></i></button>
+            </div>
+            <p>Cet article n'est pas disponible en quantité suffisante.</p>
+            </li>
+        </ng-template>
     </ul>
     <div>
         Prix total : {{ prixTotal }} €
