@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Articles } from 'src/app/interfaces/articles';
 import { ArticleService } from 'src/app/services/articles/article.service';
+import { PanierService } from 'src/app/services/panier/panier.service';
 
 @Component({
   selector: 'app-articles',
@@ -10,7 +11,8 @@ import { ArticleService } from 'src/app/services/articles/article.service';
 export class ArticlesComponent implements OnInit {
   article: Articles = {};
   articles: Articles[] = [];
-  constructor(private articlesService: ArticleService) {}
+  constructor(private articlesService: ArticleService, 
+    private panierService: PanierService) {}
 
   ngOnInit(): void {
     this.initialize();

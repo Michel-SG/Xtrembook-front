@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Panier } from 'src/app/interfaces/panier';
+import { Articles } from 'src/app/interfaces/articles';
+import { Lignepanier } from 'src/app/interfaces/lignepanier';
+import { PanierService } from 'src/app/services/panier/panier.service';
 
 @Component({
   selector: 'app-panier',
@@ -7,44 +9,34 @@ import { Panier } from 'src/app/interfaces/panier';
   styleUrls: ['./panier.component.css']
 })
 export class PanierComponent implements OnInit {
-//   panier: [article: {
-//     nom, prix, quantite
-// }];
-panier = [];
-article1 = {};
-article2 = {};
-prixtotal = 0;
+  prixTotal = 0; //Prix total du panier
+  panier: Array<Lignepanier> = []; //Le panier
 
-  constructor() { }
+  constructor(
+    private panierService: PanierService
+  ) { }
 
   ngOnInit(): void {
-    this.article1 = { id: 1, nom: "article 1", quantite:1, prix: 12};
-    this.article2 = { id: 2, nom: "article 2", quantite:2, prix: 10};
-
-    this.panier = [
-      this.article1, this.article2
-    ];
-    this.calculerPrixTotal();
-
-    this.enregistrerPanier();
-
-  }
-  calculerPrixTotal() {
-    this.prixtotal = 0;
-    this.panier.forEach(article => {
-      this.prixtotal += article.prix * article.quantite;
-    })
-  }
-
-  enregistrerPanier() {
-    localStorage.clear();
-    this.panier.forEach(article => {
-      localStorage.setItem(JSON.stringify(article.id), JSON.stringify(article));
-    });
+    if (this.panierService.verificationLocalStorage()) {
+      //Récupération du panier
+      this.panier = this.panierService.recuperationLocalStorage();
+    }
+    //Récupération du prix total pour l'afficher
+    this.prixTotal = this.panierService.calculTotal();
   }
 
   passerCommande() {
-
+    console.log(this.panier);
   }
 
+  modifierQuantite(idArticle, op) {
+    if (this.panierService.modifierQuantite(idArticle, op)) {
+      this.prixTotal = this.panierService.calculTotal();
+    }
+  }
+
+  supprimerArticle(idArticle) {
+    this.panierService.supprimerArticle(idArticle);
+    this.prixTotal = this.panierService.calculTotal();
+  }
 }

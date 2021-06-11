@@ -1,17 +1,21 @@
-<form (ngSubmit)=passerCommande()>
-    <div>Articles ajoutés au panier :</div>
-    <ul *ngFor="let article of panier">
+<form>
+    <h3>Articles ajoutés au panier :</h3>
+    <ul *ngFor="let article of panier; let i = index">
         <li class="article">
-            <div>{{ article.nom }} :</div>
-            <div><input type=number [value]="[article.quantite]"></div>
-            <div>{{ article.prix }}€</div>
+            <div>{{ article.article.titre }} (prix unitaire : {{ article.article.prixUnit }}€) :</div>
+            <div>
+                <div>Quantité : {{ article.quantite }}</div>
+                <button (click)="modifierQuantite(i, '+')"><i class="fas fa-plus"></i></button>
+                <button (click)="modifierQuantite(i, '-')"><i class="fas fa-minus"></i></button>
+                <button (click)="supprimerArticle(i)"><i class="fas fa-trash-alt"></i></button>
+            </div>
+            <div>Prix : {{ article.article.prixUnit*article.quantite }}€</div>
         </li>
     </ul>
-    <div>Prix total : {{ prixtotal }}€</div>
     <div>
-        <button type="button" class="btn btn-info" (click)="calculerPrixTotal()">Calculer</button>
+        Prix total : {{ prixTotal }} €
     </div>
     <div>
-        <button class="btn btn-warning">Valider ma commande</button>
+        <button type="button" (click)=passerCommande() class="btn btn-warning">Valider ma commande</button>
     </div>
 </form>

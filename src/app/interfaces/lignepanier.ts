@@ -1,6 +1,6 @@
 import { Articles } from "./articles";
 
-export interface Panier {
-    articles: Articles,
+export interface Lignepanier {
+    article: Articles,
     quantite: number
 }
