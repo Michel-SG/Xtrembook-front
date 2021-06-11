@@ -11,12 +11,15 @@ import { PanierService } from 'src/app/services/panier/panier.service';
 export class ArticlesComponent implements OnInit {
   article: Articles = {
   };
+  recherche: Articles;
   articles: Articles[] = [];
   constructor(private articlesService: ArticleService, 
     private panierService: PanierService) {}
 
   ngOnInit(): void {
     this.initialize();
+    
+    
   }
 
   initialize() {

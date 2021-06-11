@@ -21,7 +21,6 @@ export class AuthService {
 
       this.http.post(this.host + "/api/user/signup", user)
         .subscribe((response: User) => {
-          console.log("prenom "+response.prenom)
           resolve(response);
         },
           (error) => {

@@ -9,11 +9,13 @@ import { PanierComponent } from './composants/panier/panier.component';
 import { LivreUniqueComponent } from './composants/livre-unique/livre-unique.component';
 import { CommandeValideeComponent } from './composants/commande-validee/commande-validee.component';
 import { AuthGuard } from './guards/auth.guard';
+import { RechercheComponent } from './composants/recherche/recherche.component';
 
 const routes: Routes = [
   {path: 'auth/connexion',  component: ConnexionComponent},
   {path: 'auth/inscription', component: InscriptionComponent},
   {path: 'article', component: ArticlesComponent},
+  {path: 'article/:id', component: RechercheComponent },
   {path: 'livre/:referenceArticle', component: LivreUniqueComponent},
   {path: 'article/commande', canActivate: [AuthGuard], component: CommandeComponent},
   {path: 'commande-validee', component: CommandeValideeComponent},
