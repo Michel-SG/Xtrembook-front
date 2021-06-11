@@ -35,15 +35,6 @@ export class InscriptionComponent implements OnInit {
 
   onSubmitForm() {
     this.authService.createUser(this.signupForm.value)
-      .then((response) => {
-        console.log(response);
-        this.router.navigate(['/auth','connexion']);
-      })
-      .catch((error)=>{
-        this.loading = false;
-        console.error(error);
-        this.errorMsg = "Veuillez remplir tous les champs";
-      })
 
   }
 

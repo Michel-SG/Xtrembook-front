@@ -11,19 +11,21 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 export class MenuComponent implements OnInit {
   prenom: string;
   searchForm = this.formBuilder.group({
-    mots: ['', Validators.required]
+    parameter: ['', Validators.required]
   });
   constructor(private auth: AuthService,
     private formBuilder: FormBuilder, 
-    private search: ArticleService) { }
+    private search: ArticleService,
+    private articleService: ArticleService) { }
 
   ngOnInit(): void {
-    this.prenom = JSON.parse(localStorage.getItem('userName'));
+    setInterval(()=>{
+      this.prenom = JSON.parse(localStorage.getItem('userName'));
+    },200)
+    
     
   }
-  onSubmitSearch(){
-    
-  }
+
   onLogout() {
     this.auth.logout();
   }

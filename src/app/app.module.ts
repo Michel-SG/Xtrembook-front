@@ -12,6 +12,7 @@ import { CommandeComponent } from './composants/commande/commande.component';
 import { PanierComponent } from './composants/panier/panier.component';
 import { LivreUniqueComponent } from './composants/livre-unique/livre-unique.component';
 import { CommandeValideeComponent } from './composants/commande-validee/commande-validee.component';
+import { RechercheComponent } from './composants/recherche/recherche.component';
 
 
 
@@ -28,6 +29,7 @@ import { CommandeValideeComponent } from './composants/commande-validee/commande
     PanierComponent,
     LivreUniqueComponent,
     CommandeValideeComponent,
+    RechercheComponent,
    
    
    

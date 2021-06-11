@@ -90,4 +90,8 @@ export class PanierService {
     });
     return this.prixTotal;
   }
+
+  viderStockageLocal(){
+    //A faire quand la commande est validéee
+  }
 }
