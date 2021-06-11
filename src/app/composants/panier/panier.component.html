@@ -1,65 +1,44 @@
-<form class="margePanier">
-    <h3 >Articles ajoutés au panier :</h3>
-    <ul *ngFor="let article of panier; let i = index">
-        <li class="article">
-            <div>{{ article.article.titre }} (prix unitaire : {{ article.article.prixUnit }}€) :</div>
-            <div>
-                <div>Quantité : {{ article.quantite }}</div>
-                <button (click)="modifierQuantite(i, '+')"><i class="fas fa-plus"></i></button>
-                <button (click)="modifierQuantite(i, '-')"><i class="fas fa-minus"></i></button>
-                <button (click)="supprimerArticle(i)"><i class="fas fa-trash-alt"></i></button>
-            </div>
-            <div>Prix : {{ article.article.prixUnit*article.quantite }}€</div>
-        </li>
-    </ul>
-    <div>
-        Prix total : {{ prixTotal }} €
-    </div>
-    <div>
-        <button type="button" (click)=passerCommande() class="btn btn-warning">Valider ma commande</button>
-    </div>
-</form>
-<!--
-<div class="container fw-bold vw-100">
-     <p class=" margeBook text-center" >Hoopsss Votre panier est vide</p> -->
-    <!--<table class="table margeBook" >
+<div class="container fw-bold vw-100 margePanier">
+    <table class="table margeBook">
         <thead class="table-dark">
             <tr>
-                <th scope="col-md">Image</th>
-                <th scope="col-md">Titre</th>
-                <th scope="col-md">Auteur</th>
+                <th scope="col-md">Article</th>
+                <th scope="col-md">Prix unitaire</th>
                 <th scope="col-md">Quantité</th>
-                <th scope="col-md">HT</th>
-                <th scope="col-md">TTC</th>
+                <th scope="col-md">Prix</th>
             </tr>
         </thead>
-        <tbody >
-            <tr>
+        <tbody>
+            <tr *ngFor="let article of panier; let i = index">
                 <th scope="row">
-                    <div class="mw-25 overflow-hidden">
-                        <a [routerLink]="['/article/livreUnique/']"><img 
-                                class="card-img-top  rounded-top" alt="img"></a>
+                    <div class="d-flex flex-row">
+                        <div class="mw-25 overflow-hidden">
+                            <a [routerLink]="['/article/livreUnique/']"><img class="card-img-top  rounded-top"
+                                    alt="image de l'article"></a>
+                        </div>
+                        <div>
+                            <h3>{{ article.article.titre }}</h3>
+                        </div>
                     </div>
                 </th>
-                <td>titre</td>
-                <td >Nom auteur et prenom</td>
-                <td><i class="fas fa-minus" ></i><input type="number"
-                        class="margeInput mx-1" ><i class="fas fa-plus"
-                        ></i></td>
-                <td>prix Unitaire €</td>
-                <td>prix total € <i  class="far fa-trash-alt ps-5"></i></td>
+                <td>{{ article.article.prixUnit}}€</td>
+                <td>
+                    <div class="d-flex flex-row">
+                        <button (click)="modifierQuantite(i, '-')"><i class="fas fa-minus"></i></button>
+                        <p>{{ article.quantite }}</p>
+                        <button (click)="modifierQuantite(i, '+')"><i class="fas fa-plus"></i></button>
+                    </div>
+                </td>
+                <td class="d-flex flex-row">
+                    <p>{{ article.article.prixUnit*article.quantite }}€</p>
+                    <button (click)="supprimerArticle(i)"><i class="fas fa-trash-alt"></i></button>
+                </td>
             </tr>
-           
         </tbody>
     </table>
-    <div class="d-flex flex-row justify-content-between" >
-        <p>Total à payer</p>
-        <p class="margeprix ">€</p>
+    <p>Prix total : {{ prixTotal }} €</p>
+    <div>
+        <button type="button" (click)=passerCommande() class="btn btn-warning"><i class="far fa-credit-card"></i>
+            Valider ma commande</button>
     </div>
-    <div class="d-flex flex-row justify-content-between">
-        <p><button class="btn btn-link" routerLink="/article">Retour</button></p>
-        <p ><button class="btn btn-link" (click)="onCommander()"><i
-                    class="far fa-credit-card"></i> Passer la commande</button></p>
-    </div>
-   
-</div>-->
+</div>

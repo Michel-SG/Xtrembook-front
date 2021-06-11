@@ -11,15 +11,17 @@ import { PanierService } from 'src/app/services/panier/panier.service';
 export class PanierComponent implements OnInit {
   prixTotal = 0; //Prix total du panier
   panier: Array<Lignepanier> = []; //Le panier
-  
+
   constructor(
     private panierService: PanierService
   ) { }
 
   ngOnInit(): void {
+    this.panier = [];
+    
     if (this.panierService.verificationLocalStorage()) {
       //Récupération du panier
-      this.panier = this.panierService.recuperationLocalStorage();
+      this.panier = this.panierService.recuperationLocalStorageTMP();//TEMPORAIRE
     }
     //Récupération du prix total pour l'afficher
     this.prixTotal = this.panierService.calculTotal();
