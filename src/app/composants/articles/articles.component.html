@@ -9,7 +9,10 @@
             Description: <br>
             {{ a.resumed }} <br>
             Prix: {{ a.prixUnit }} €
-             <button class="btn btn-success" [routerLink]='["/livre", a.referenceArticle]' >Détails</button>
+            <div class="text-center">
+                <button class="btn btn-success" [routerLink]='["/livre", a.referenceArticle]'>Détails</button>
+                <button class="btn btn-info" (click)="ajouterAuPanier(a)">Acheter</button>
+            </div>
         </div>
     </div>
 </div>

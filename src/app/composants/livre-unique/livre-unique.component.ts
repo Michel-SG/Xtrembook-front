@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Livre } from 'src/app/interfaces/livre';
 import { ArticleService } from 'src/app/services/articles/article.service';
+import { PanierService } from 'src/app/services/panier/panier.service';
 
 @Component({
   selector: 'app-livre-unique',
@@ -12,7 +13,9 @@ export class LivreUniqueComponent implements OnInit {
 referenceArticle = "";
 livre: Livre = {};
 
-  constructor(private articlesService: ArticleService, private route: ActivatedRoute) { }
+  constructor(private articlesService: ArticleService,
+    private route: ActivatedRoute,
+    private panierService: PanierService) { }
 
   ngOnInit(): void {
     this.initialize();
@@ -28,5 +31,9 @@ initialize() {
         console.log(this.livre.auteurs);
       });
     });
+  }
+
+  ajouterAuPanier(article){
+    this.panierService.ajoutArticle(article);
   }
 }
