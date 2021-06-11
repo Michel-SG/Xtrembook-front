@@ -11,7 +11,7 @@ import { PanierService } from 'src/app/services/panier/panier.service';
 export class PanierComponent implements OnInit {
   prixTotal = 0; //Prix total du panier
   panier: Array<Lignepanier> = []; //Le panier
-
+  
   constructor(
     private panierService: PanierService
   ) { }
@@ -23,6 +23,9 @@ export class PanierComponent implements OnInit {
     }
     //Récupération du prix total pour l'afficher
     this.prixTotal = this.panierService.calculTotal();
+  }
+  onCommander() {
+    this.router.navigate(['article/','commande']);
   }
 
   passerCommande() {

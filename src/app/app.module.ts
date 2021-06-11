@@ -11,6 +11,8 @@ import { InscriptionComponent } from './composants/auth/inscription/inscription.
 import { CommandeComponent } from './composants/commande/commande.component';
 import { PanierComponent } from './composants/panier/panier.component';
 import { LivreUniqueComponent } from './composants/livre-unique/livre-unique.component';
+import { CommandeValideeComponent } from './composants/commande-validee/commande-validee.component';
+
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { LivreUniqueComponent } from './composants/livre-unique/livre-unique.com
     InscriptionComponent,
     CommandeComponent,
     PanierComponent,
-    LivreUniqueComponent
+    LivreUniqueComponent,
+    CommandeValideeComponent,
+   
   ],
   imports: [
     BrowserModule,

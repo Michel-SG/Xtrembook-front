@@ -9,7 +9,8 @@ import { PanierService } from 'src/app/services/panier/panier.service';
   styleUrls: ['./articles.component.css'],
 })
 export class ArticlesComponent implements OnInit {
-  article: Articles = {};
+  article: Articles = {
+  };
   articles: Articles[] = [];
   constructor(private articlesService: ArticleService, 
     private panierService: PanierService) {}

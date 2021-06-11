@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
@@ -8,7 +9,8 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   styleUrls: ['./inscription.component.css']
 })
 export class InscriptionComponent implements OnInit {
-
+  loading: boolean;
+  errorMsg: string;
   signupForm = this.formBuilder.group({
     nom: ['', Validators.required],
     prenom: ['', Validators.required],
@@ -25,9 +27,24 @@ export class InscriptionComponent implements OnInit {
   });
 
   constructor(private formBuilder: FormBuilder,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  onSubmitForm() {
+    this.authService.createUser(this.signupForm.value)
+      .then((response) => {
+        console.log(response);
+        this.router.navigate(['/auth','connexion']);
+      })
+      .catch((error)=>{
+        this.loading = false;
+        console.error(error);
+        this.errorMsg = "Veuillez remplir tous les champs";
+      })
+
   }
 
 }

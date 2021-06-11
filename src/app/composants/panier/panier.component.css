@@ -3,3 +3,27 @@ form {
     padding: 5px;
     border: solid 1px black;
 }
+/*
+.margeBook {
+    margin-top: 8em;
+}
+.margeInput{
+    width: 4em;
+    height: 1.2em;
+}
+.card-img-top{
+    width: 4em;
+}
+.fa-credit-card{
+    color: var(--bs-primary);
+}
+
+.margeprix{
+    padding-right: 13.5em;
+}
+.fa-trash-alt{
+    color: var(--bs-danger);
+}
+.fa-plus{
+    cursor: pointer;
+}*/

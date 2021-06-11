@@ -19,3 +19,47 @@
         <button type="button" (click)=passerCommande() class="btn btn-warning">Valider ma commande</button>
     </div>
 </form>
+<!--
+<div class="container fw-bold vw-100">
+    <!-- <p class=" margeBook text-center" >Hoopsss Votre panier est vide</p> -->
+    <table class="table margeBook" >
+        <thead class="table-dark">
+            <tr>
+                <th scope="col-md">Image</th>
+                <th scope="col-md">Titre</th>
+                <th scope="col-md">Auteur</th>
+                <th scope="col-md">Quantité</th>
+                <th scope="col-md">HT</th>
+                <th scope="col-md">TTC</th>
+            </tr>
+        </thead>
+        <tbody >
+            <tr>
+                <th scope="row">
+                    <div class="mw-25 overflow-hidden">
+                        <a [routerLink]="['/article/livreUnique/']"><img 
+                                class="card-img-top  rounded-top" alt="img"></a>
+                    </div>
+                </th>
+                <td>titre</td>
+                <td >Nom auteur et prenom</td>
+                <td><i class="fas fa-minus" ></i><input type="number"
+                        class="margeInput mx-1" ><i class="fas fa-plus"
+                        ></i></td>
+                <td>prix Unitaire €</td>
+                <td>prix total € <i  class="far fa-trash-alt ps-5"></i></td>
+            </tr>
+           
+        </tbody>
+    </table>
+    <div class="d-flex flex-row justify-content-between" >
+        <p>Total à payer</p>
+        <p class="margeprix ">€</p>
+    </div>
+    <div class="d-flex flex-row justify-content-between">
+        <p><button class="btn btn-link" routerLink="/article">Retour</button></p>
+        <p ><button class="btn btn-link" (click)="onCommander()"><i
+                    class="far fa-credit-card"></i> Passer la commande</button></p>
+    </div>
+   
+</div>-->

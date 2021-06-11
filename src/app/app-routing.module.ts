@@ -7,14 +7,17 @@ import { InscriptionComponent } from './composants/auth/inscription/inscription.
 import { CommandeComponent } from './composants/commande/commande.component';
 import { PanierComponent } from './composants/panier/panier.component';
 import { LivreUniqueComponent } from './composants/livre-unique/livre-unique.component';
+import { CommandeValideeComponent } from './composants/commande-validee/commande-validee.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  {path: 'auth/connexion', component: ConnexionComponent},
+  {path: 'auth/connexion',  component: ConnexionComponent},
   {path: 'auth/inscription', component: InscriptionComponent},
   {path: 'article', component: ArticlesComponent},
-  {path: 'article/livreUnique/:id', component: LivreUniqueComponent},
-  {path: 'article/commande', component: CommandeComponent},
-  {path: "panier", component : PanierComponent},
+  {path: 'livre/:referenceArticle', component: LivreUniqueComponent},
+  {path: 'article/commande', canActivate: [AuthGuard], component: CommandeComponent},
+  {path: 'commande-validee', component: CommandeValideeComponent},
+  {path: 'article/panier', component: PanierComponent},
   {path: '', pathMatch: 'full', redirectTo: 'article'},
   {path: '**',redirectTo: 'article'}
 ];

@@ -1,1 +1,43 @@
-<p>livre-unique works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>{{ this.livre.titre }}</h2>
+            <h3> Par {{ this.livre.prenom }} {{ this.livre.nom }} </h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <img src={{this.livre.imageUrl}} id="image"/>
+        </div>
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4>Prix : {{ this.livre.prixUnit }} €</h4>
+                </div>
+                <div class="col-sm-6"> <button id="pan">Ajouter au panier</button></div>
+            </div>
+            <h4 id="btop">Description</h4>
+            <p> {{ this.livre.resumed }}
+            </p>
+            <h4 id="btop">Informations sur le produit</h4>
+            <table style="width: 400px; border: 1px solid">
+                <tr>
+                    <th>Isbn 13</th>
+                    <td>{{this.livre.isbn13}}</td>
+                </tr>
+                <tr>
+                    <th>Genre</th>
+                    <td> {{ this.livre.genre }} </td>
+                </tr>
+                <tr>
+                    <th>Format</th>
+                    <td> {{ this.livre.formatLivre }} </td>
+                </tr>
+                <tr>
+                    <th>Editeur</th>
+                    <td> {{ this.livre.nomEditeur }} </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
