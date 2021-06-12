@@ -1,8 +1,8 @@
 <div class="container-fluid">
     <div class="row marge">
         <div class="col-sm-12">
-            <h2>{{ this.livre.titre }}</h2>
-            <h3> Par </h3>
+            <h2 class="fs-4 text-center mt-3">{{ this.livre.titre }}</h2>
+            <h6> Par :</h6>
             <p *ngFor="let a of livre.auteurs">
                 {{ a.prenom }} {{ a.nom }}
             </p>
