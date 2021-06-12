@@ -13,6 +13,7 @@ import { PanierComponent } from './composants/panier/panier.component';
 import { LivreUniqueComponent } from './composants/livre-unique/livre-unique.component';
 import { CommandeValideeComponent } from './composants/commande-validee/commande-validee.component';
 import { RechercheComponent } from './composants/recherche/recherche.component';
+import { AdministrateurComponent } from './composants/administrateur/administrateur.component';
 
 
 
@@ -30,6 +31,7 @@ import { RechercheComponent } from './composants/recherche/recherche.component';
     LivreUniqueComponent,
     CommandeValideeComponent,
     RechercheComponent,
+    AdministrateurComponent,
    
    
    

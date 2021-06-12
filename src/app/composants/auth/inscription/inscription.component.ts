@@ -34,7 +34,14 @@ export class InscriptionComponent implements OnInit {
   }
 
   onSubmitForm() {
-    this.authService.createUser(this.signupForm.value)
+    this.authService.createUser(this.signupForm.value).then(response=>{
+      console.log(response);
+      this.authService.loginUser(this.signupForm.value)
+      .then(()=>{
+        this.loading = false;
+        this.router.navigate(['/article']);
+      })
+    })
 
   }
 

@@ -7,4 +7,5 @@ export interface User {
     email?: string;
     motDePasse?: string;
     adresse?: Adresse;
+    idadmin?: number;
 }

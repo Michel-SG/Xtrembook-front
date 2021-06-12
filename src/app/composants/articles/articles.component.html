@@ -16,8 +16,8 @@
                 <p class="card-text p-0 m-0">Prix unitaire : {{a.prixUnit}} €</p>
             </div>
             <div class="text-center">
-                <button class="btn btn-success mx-5 mb-2" [routerLink]='["/livre", a.referenceArticle]'>Détails</button>
-                <button class="btn btn-info mb-2" (click)="ajouterAuPanier(a)">Acheter</button>
+                <button class="btn btn-link mx-5 mb-2" [routerLink]='["/livre", a.referenceArticle]'(click)="onConsultation(a.referenceArticle)" ><i class="far fa-edit" ></i> Détails</button>
+                <button class="btn btn-link mb-2" (click)="ajouterAuPanier(a)"><i class="fas fa-cart-arrow-down" ></i> Acheter</button>
             </div>
         </div>
     </div>

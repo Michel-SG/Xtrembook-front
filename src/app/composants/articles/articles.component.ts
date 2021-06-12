@@ -25,16 +25,17 @@ export class ArticlesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.initialize();
-    
-    
+    this.initialize(); 
+  }
+  onConsultation(id: number){
+    let articl = this.articles.find(artl=>artl.referenceArticle === id);
+    this.articlesService.articleConsulter(articl);
   }
 
   initialize() {
     this.articlesService.getAllArticles().subscribe((res) => {
       this.all = res;
       this.articles = this.all.filter((elt) => elt.stock != 0);
-      console.log(res);
     });
   }
 
@@ -42,7 +43,6 @@ export class ArticlesComponent implements OnInit {
     console.log(this.searchForm.value);
     this.articlesService.getAllByParameter(this.searchForm.value).subscribe((res) => {
       this.reponses = res;
-      console.log(this.reponses);
     })
   }
 

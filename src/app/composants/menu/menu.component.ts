@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { ArticleService } from 'src/app/services/articles/article.service';
+
+import { Subscription } from 'rxjs';
+
 import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
@@ -10,19 +11,16 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class MenuComponent implements OnInit {
   prenom: string;
-  searchForm = this.formBuilder.group({
-    parameter: ['', Validators.required]
-  });
-  constructor(private auth: AuthService,
-    private formBuilder: FormBuilder, 
-    private search: ArticleService,
-    private articleService: ArticleService) { }
+  admin: number;
+  authSubscription: Subscription;
+
+  constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
+   
     setInterval(()=>{
       this.prenom = JSON.parse(localStorage.getItem('userName'));
     },200)
-    
     
   }
 

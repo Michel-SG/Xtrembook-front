@@ -24,11 +24,11 @@ initialize() {
   this.route.paramMap.subscribe(
     (value) => {
       this.referenceArticle = value.get('referenceArticle') ?? '';
-      console.log(this.referenceArticle)
+      // console.log(this.referenceArticle)
       this.articlesService.getOneById(this.referenceArticle).subscribe((res) => {
         this.livre = res;
-        console.log(this.livre);
-        console.log(this.livre.auteurs);
+        // console.log(this.livre);
+        // console.log(this.livre.auteurs);
       });
     });
   }

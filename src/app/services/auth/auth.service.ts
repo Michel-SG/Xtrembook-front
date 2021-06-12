@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
   host = environment.host;
-  private userId: number;
+  userId: number;
   private prenom: string;
   isAuth$ = new BehaviorSubject<boolean>(false);
   isAuth= true;
@@ -29,9 +29,17 @@ export class AuthService {
 
     });
   }
+
+  getUserId(){
+    return this.userId;
+  }
+  getPrenom(){
+    return this.prenom;
+  }
   loginUser(user: User) {
     return new Promise((resolve, reject)=>{
       this.http.post(this.host + "/api/user/login", user).subscribe((response: User)=>{
+        console.log(user)
         localStorage.setItem('userName', JSON.stringify(response[0].prenom))
         this.userId = response[0].idU;
         this.prenom = response[0].prenom;
@@ -43,14 +51,11 @@ export class AuthService {
       })
     })
   }
-  getUserId(){
-    return this.userId;
-  }
-  getPrenom(){
-    return this.prenom;
-  }
+  
   logout() {
+    console
     this.userId = null;
+    localStorage.setItem("userName", null);
     this.isAuth$.next(false);
     this.router.navigate(["/article"]);
   }
