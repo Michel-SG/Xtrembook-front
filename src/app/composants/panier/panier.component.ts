@@ -20,15 +20,15 @@ export class PanierComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit(): void {
-    this.panier = [];
-    
+  ngOnInit(): void {    
     if (this.panierService.verificationLocalStorage()) {
       //Récupération du panier
-      this.panier = this.panierService.recuperationLocalStorageTMP();//TEMPORAIRE
+      this.panier = this.panierService.recuperationLocalStorage();
     }
     //Récupération du prix total pour l'afficher
     this.prixTotal = this.panierService.calculTotal();
+
+    console.log(this.panier[1].article.imageUrl);
   }
 
   modifierQuantite(idArticle, op) {
@@ -64,7 +64,7 @@ export class PanierComponent implements OnInit {
     })
     console.log(this.panier.length);
     if(stocksDispo && this.panier.length > 0){
-        this.router.navigateByUrl("/article/commande");
+        this.router.navigateByUrl("commande");
       }
   }    
 }

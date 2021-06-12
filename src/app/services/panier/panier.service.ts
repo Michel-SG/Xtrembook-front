@@ -7,17 +7,6 @@ import { Lignepanier } from 'src/app/interfaces/lignepanier';
 })
 export class PanierService {
   prixTotal = 0;
-
-  article1: Articles = {//TEMPORAIRE---------------------------------
-    referenceArticle: 1,
-    titre: "Livre 1",
-    prixUnit: 10,
-  };
-  article2: Articles = {
-    referenceArticle: 2,
-    titre: "Livre 2",
-    prixUnit: 10,
-  };//TEMPORAIRE-----------------------------------------------------
   panier: Array<Lignepanier> = [];
 
   constructor() { }
@@ -38,11 +27,6 @@ export class PanierService {
 
   recuperationLocalStorage() {
     this.panier = JSON.parse(localStorage.getItem("panier"));
-    return this.panier;
-  }
-
-  recuperationLocalStorageTMP() {//TEMPORAIRE
-    this.panier = [{article: this.article1, quantite: 1}, {article: this.article2, quantite: 1}];;
     return this.panier;
   }
 
