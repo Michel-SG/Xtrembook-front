@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Articles } from 'src/app/interfaces/articles';
 import { Lignepanier } from 'src/app/interfaces/lignepanier';
 
 @Injectable({
@@ -31,17 +30,25 @@ export class PanierService {
   }
 
   ajoutArticle(articleSupp) {
-    this.recuperationLocalStorage();
-    //Création d'une ligne temporaire
-    let lignePanier: Lignepanier = {article: articleSupp, quantite : 1};
-
-    let idArticle = this.panier.find((elt) => elt.article.referenceArticle == lignePanier.article.referenceArticle);
-    if (idArticle) {
-      idArticle.quantite ++;
-    } else {
-      this.panier.push({ article: articleSupp, quantite: 1 });
+    if (this.verificationLocalStorage()){//Si le localstorage contient le ligne panier,
+      this.recuperationLocalStorage();//On récupère le contenu de cette ligne
     }
-    this.enregistrerPanier();
+    //Création d'une ligne temporaire
+    let lignePanier: Lignepanier = { article: articleSupp, quantite: 1 };
+
+    if (this.panier != null) {//Si le panier n'est pas vide
+      let idArticle = this.panier.find((elt) => elt.article.referenceArticle == lignePanier.article.referenceArticle);
+      if (idArticle) {//Si l'article existe déjà dans le panier
+        idArticle.quantite++;
+      }
+      else {//Ajout de l'article à la fin du panier
+        this.panier.push({ article: articleSupp, quantite: 1 });
+      }
+    }
+    else {//Ajout de l'article au début du panier
+      this.panier[0] = { article: articleSupp, quantite: 1 };
+    }
+    this.enregistrerPanier();//Enregistrement du panier dans le stockage local
   }
 
   enregistrerPanier() {
@@ -75,7 +82,7 @@ export class PanierService {
     return this.prixTotal;
   }
 
-  viderStockageLocal(){
+  viderStockageLocal() {
     //A faire quand la commande est validéee
   }
 }
