@@ -1,0 +1,22 @@
+<div class="container fw-bold vw-100">
+    <h2 class="text-center margeBook">Les articles les plus consultés</h2>
+    <p class="ps-1"><button class="btn btn-link" [routerLink]="['/article']">Retour</button></p>
+    <div class="row  d-flex flex-row w-100">
+        <div class=" col-md-4 " *ngFor='let article of articles'>
+            <article class="card border rounded bg-white shadow book mb-4 mt-2">
+                <div class="mw-100 overflow-hidden">
+                    <a [routerLink]="['/article']"><img [src]="article.imageUrl" class="card-img-top" alt="..."
+                            class="w-100 rounded-top "></a>
+                </div>
+                <div class="card-body">
+                    <p class="card-text p-0 m-0">Titre : {{article.titre}} </p>
+                    <!-- <p class="card-text p-0 m-0">Résumé : {{ article.resumed }}</p> -->
+                    <p class="card-text p-0 m-0">Prix unitaire : {{ article.prixUnit }} €</p>
+                </div>
+
+            </article>
+        </div>
+
+    </div>
+
+</div>

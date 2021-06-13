@@ -10,10 +10,12 @@ import { LivreUniqueComponent } from './composants/livre-unique/livre-unique.com
 import { CommandeValideeComponent } from './composants/commande-validee/commande-validee.component';
 import { AuthGuard } from './guards/auth.guard';
 import { RechercheComponent } from './composants/recherche/recherche.component';
+import { AdministrateurComponent } from './composants/administrateur/administrateur.component';
 
 const routes: Routes = [
   {path: 'auth/connexion',  component: ConnexionComponent},
   {path: 'auth/inscription', component: InscriptionComponent},
+  {path: 'admin', component: AdministrateurComponent},
   {path: 'article', component: ArticlesComponent},
   {path: 'livre/:referenceArticle', component: LivreUniqueComponent},
   {path: 'commande', canActivate: [AuthGuard], component: CommandeComponent},

@@ -21,3 +21,7 @@ button:hover {
     color: var(--bs-white);
    
 }
+.bg-light{
+    background-color:#FFFAF0;
+}
+

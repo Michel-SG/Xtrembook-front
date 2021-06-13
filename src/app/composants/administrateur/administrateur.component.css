@@ -1,0 +1,17 @@
+h2 {
+    font-size: 23px;
+}
+
+.margeBook {
+    margin-top: 5em;
+    margin-bottom: 1.2em;
+}
+.book img{
+    transition: transform 0.3s ease-out;
+    transform: scale(1);
+}
+.book img:hover{
+    transform: scale(1.075);
+}
+
+

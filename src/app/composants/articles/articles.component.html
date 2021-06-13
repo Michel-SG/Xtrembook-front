@@ -1,10 +1,10 @@
 
 <div class="contain">
-    <form class="d-flex ms-auto w-25 justify-content-center" [formGroup]="searchForm" (ngSubmit)="onSubmitSearch() " >
+    <form class="d-flex ms-auto mx-5 justify-content-center" [formGroup]="searchForm" (ngSubmit)="onSubmitSearch() " >
         <input class="form-control me-sm-2 " type="text" placeholder="Recherche par mot-clé" formControlName="parameter">
         <button class="btn btn-secondary my-2 my-sm-0" type="submit" >Recherche</button>
       </form>
-    <h2 class="text-center">Liste des articles</h2>
+    <h2 class="text-center mt-3">Liste des articles</h2>
     <div id="body" *ngIf="reponses == null"  >
         <div *ngFor="let a of articles" id="card" class="border rounded bg-white shadow mb-4 mt-2">
             <div class="mw-100 overflow-hidden">
@@ -16,22 +16,26 @@
                 <p class="card-text p-0 m-0">Prix unitaire : {{a.prixUnit}} €</p>
             </div>
             <div class="text-center">
-                <button class="btn btn-success mx-5 mb-2" [routerLink]='["/livre", a.referenceArticle]'>Détails</button>
-                <button class="btn btn-info mb-2" (click)="ajouterAuPanier(a)">Acheter</button>
+                <button class="btn btn-link mx-5 mb-2" [routerLink]='["/livre", a.referenceArticle]'(click)="onConsultation(a.referenceArticle)" ><i class="far fa-edit" ></i> Détails</button>
+                <button class="btn btn-link mb-2" (click)="ajouterAuPanier(a)"><i class="fas fa-cart-arrow-down" ></i> Acheter</button>
             </div>
         </div>
     </div>
 
-    <div id="body" *ngIf="reponses != null">
-        <div *ngFor="let a of reponses" id="card">
+    <div id="body" *ngIf="reponses != null"  >
+        <div *ngFor="let a of reponses" id="card" class="border rounded bg-white shadow mb-4 mt-2">
             <div class="mw-100 overflow-hidden">
-                <a><img src={{a.imageUrl}} id="image" class="w-100 rounded-top " /> </a>
+                <a [routerLink]='["/livre", a.referenceArticle]'><img src={{a.imageUrl}} id="image" class=" rounded-top " /> </a>
             </div>
-            <h4>{{ a.titre }} </h4>
-            Description: <br>
-            {{ a.resumed }} <br>
-            Prix: {{ a.prixUnit }} €
-             <button class="btn btn-success" [routerLink]='["/livre", a.referenceArticle]' >Détails</button>
+            <div class="card-body">
+                <p class="card-text p-0 m-0">Titre : {{ a.titre}}</p>
+                <p class="card-text p-0 m-0">Description : {{a.resumed}}</p>
+                <p class="card-text p-0 m-0">Prix unitaire : {{a.prixUnit}} €</p>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-link mx-5 mb-2" [routerLink]='["/livre", a.referenceArticle]'(click)="onConsultation(a.referenceArticle)" ><i class="far fa-edit" ></i> Détails</button>
+                <button class="btn btn-link mb-2" (click)="ajouterAuPanier(a)"><i class="fas fa-cart-arrow-down" ></i> Acheter</button>
+            </div>
         </div>
     </div>
 </div>
