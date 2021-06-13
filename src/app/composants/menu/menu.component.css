@@ -1,27 +1,16 @@
-/* li {
-    line-height: 2rem;
-}
-
-a {
-    color: black;
-}
-
-a:hover {
-    color: var(--bs-gray);
-} */
 .nav-link {
     font-family: Arial, Helvetica, sans-serif;
 }
-
-button:hover {
+button:hover{
     background-color: green;
-    border: 1px solid green;
 }
-.fa-cart-arrow-down{
-    color: var(--bs-white);
-   
+button {
+    background-color: var(--bs-success);
+    border: 1px solid green;
 }
 .bg-light{
     background-color:#FFFAF0;
 }
-
+.navbar {
+    background-color: white;
+}
