@@ -11,18 +11,18 @@ padding-top: 10px;
 margin-top:20px;
 }
 
-#pan {
-    border-radius: 5px;
-    background-color:#EA6A0B;
-    color: white;
-    width: 200px;
-    height: 30px;
-}
-
 h3 {
     Color: #707070;
 }
 
 .marge {
     margin-top: 6em;
+}
+img {
+    max-width: 22em;
+    
+}
+
+.btn-orange {/*TEMPORAIRE*/
+    background-color: #EA6A0B;
 }
