@@ -1,5 +1,6 @@
 <form class="margePanier container px-0" (ngSubmit)="passerCommande()">
     <h2>Panier</h2>
+    <p *ngif="panier.length == 0">test</p>
     <div *ngIf="panier.length > 0; else paniervide;">
         <h3>Articles ajoutés au panier :</h3>
         <ul *ngFor="let article of panier; let i = index" class="container">
@@ -72,7 +73,7 @@
         </div>
     </div>
     <ng-template #paniervide>
-        <p>Votre panier est vide. <a [routerLink]='["/"]'>Visiter notre catalogue pour ajouter des articles.</a></p>
+        <p>Votre panier est vide. <a class="liens" [routerLink]='["/"]'>Visiter notre catalogue pour ajouter des articles.</a></p>
     </ng-template>
 
 </form>

@@ -1,14 +1,14 @@
 
 <div class="contain">
-    <form class="d-flex ms-auto mx-5 justify-content-center" [formGroup]="searchForm" (ngSubmit)="onSubmitSearch() " >
-        <input class="form-control me-sm-2 " type="text" placeholder="Recherche par mot-clé" formControlName="parameter">
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit" >Recherche</button>
+    <form class="d-flex mx-5 justify-content-center" [formGroup]="searchForm" (ngSubmit)="onSubmitSearch() " >
+        <input class="form-control me-sm-2" type="text" placeholder="Recherche d'article" formControlName="parameter">
+        <button class="btn btn-orange my-2 my-sm-0" type="submit"><i class="fas fa-search"></i> Recherche</button>
       </form>
     <h2 class="text-center mt-3">Liste des articles</h2>
-    <div id="body" *ngIf="reponses == null"  >
+    <div id="body" *ngIf="reponses == null">
         <div *ngFor="let a of articles" id="card" class="border rounded bg-white shadow mb-4 mt-2">
             <div class="mw-100 overflow-hidden">
-                <a [routerLink]='["/livre", a.referenceArticle]'><img src={{a.imageUrl}} id="image" class=" rounded-top " /> </a>
+                <a [routerLink]='["/livre", a.referenceArticle]'><img src={{a.imageUrl}} id="image" class=" rounded-top "/></a>
             </div>
             <div class="card-body">
                 <p class="card-text p-0 m-0">Titre : {{ a.titre}}</p>
@@ -16,8 +16,8 @@
                 <p class="card-text p-0 m-0">Prix unitaire : {{a.prixUnit}} €</p>
             </div>
             <div class="text-center">
-                <button class="btn btn-link mx-5 mb-2" [routerLink]='["/livre", a.referenceArticle]'(click)="onConsultation(a.referenceArticle)" ><i class="far fa-edit" ></i> Détails</button>
-                <button class="btn btn-link mb-2" (click)="ajouterAuPanier(a)"><i class="fas fa-cart-arrow-down" ></i> Acheter</button>
+                <button class="btn btn-gray mx-5 mb-2" [routerLink]='["/livre", a.referenceArticle]'(click)="onConsultation(a.referenceArticle)"><i class="fas fa-info-circle"></i> Détails</button>
+                <button class="btn btn-orange mb-2" (click)="ajouterAuPanier(a)"><i class="fas fa-cart-arrow-down"></i> Ajouter au panier</button>
             </div>
         </div>
     </div>
