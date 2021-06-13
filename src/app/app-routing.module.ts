@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: 'auth/inscription', component: InscriptionComponent},
   {path: 'article', component: ArticlesComponent},
   {path: 'livre/:referenceArticle', component: LivreUniqueComponent},
-  {path: 'commande', component: CommandeComponent},
+  {path: 'commande', canActivate: [AuthGuard], component: CommandeComponent},
   {path: 'commande-validee', component: CommandeValideeComponent},
   {path: 'panier', component: PanierComponent},
   {path: '', pathMatch: 'full', redirectTo: 'article'},
