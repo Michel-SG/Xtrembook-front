@@ -1,6 +1,6 @@
 
 <div class="contain">
-    <form class="d-flex ms-auto w-25 justify-content-center" [formGroup]="searchForm" (ngSubmit)="onSubmitSearch() " >
+    <form class="d-flex ms-auto justify-content-center" [formGroup]="searchForm" (ngSubmit)="onSubmitSearch() " >
         <input class="form-control me-sm-2 " type="text" placeholder="Recherche par mot-clé" formControlName="parameter">
         <button class="btn btn-secondary my-2 my-sm-0" type="submit" >Recherche</button>
       </form>
