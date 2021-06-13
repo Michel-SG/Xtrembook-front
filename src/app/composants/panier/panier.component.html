@@ -26,14 +26,18 @@
                 </div>
                 <div class="col pt-2 text-center">{{ article.article.prixUnit }}€</div>
                 <div class="col row text-center">
-                    <button (click)="modifierQuantite(i, '+')" class="col btn"><i class="fas fa-plus"></i></button>
+                    <button type=button (click)="modifierQuantite(i, '+')" class="col btn"><i class="fas fa-plus"></i></button>
                     <div class="col pt-2">{{ article.quantite }}</div>
-                    <button (click)="modifierQuantite(i, '-')" class="col btn"><i class="fas fa-minus"></i></button>
+                    <button type=button *ngIf="article.quantite == 1; else quantitepas1" class="col btn" disabled><i class="fas fa-minus"></i></button>
+                    <ng-template #quantitepas1>
+                        <button type=button (click)="modifierQuantite(i, '-')" class="col btn"><i class="fas fa-minus"></i></button>
+                    </ng-template>
+                    
                 </div>
                 <div class="col text-center pt-2">
                     <p>{{ article.article.prixUnit*article.quantite }}€</p>
                 </div>
-                <button (click)="supprimerArticle(i)" class="col-1 btn"><i
+                <button type=button (click)="supprimerArticle(i)" class="col-1 btn"><i
                         class="fas fa-trash-alt text-danger"></i></button>
             </li>
             <ng-template #sinon>
@@ -45,15 +49,15 @@
                     </div>
                     <div class="col pt-2 text-center">{{ article.article.prixUnit }}€</div>
                     <div class="col row text-center">
-                        <button (click)="modifierQuantite(i, '+')" class="col btn" disabled><i
+                        <button type=button (click)="modifierQuantite(i, '+')" class="col btn" disabled><i
                                 class="fas fa-plus"></i></button>
                         <div class="col pt-2">{{ article.quantite }}</div>
-                        <button (click)="modifierQuantite(i, '-')" class="col btn"><i class="fas fa-minus"></i></button>
+                        <button type=button (click)="modifierQuantite(i, '-')" class="col btn"><i class="fas fa-minus"></i></button>
                     </div>
                     <div class="col text-center pt-2">
                         <p>{{ article.article.prixUnit*article.quantite }}€</p>
                     </div>
-                    <button (click)="supprimerArticle(i)" class="col-1 btn"><i
+                    <button type=button (click)="supprimerArticle(i)" class="col-1 btn"><i
                             class="fas fa-trash-alt text-danger"></i></button>
                     <p class="text-danger">Cet article n'est pas disponible en quantité suffisante.</p>
                 </li>

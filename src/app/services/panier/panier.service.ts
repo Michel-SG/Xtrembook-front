@@ -30,7 +30,7 @@ export class PanierService {
   }
 
   ajoutArticle(articleSupp) {
-    if (this.verificationLocalStorage()){//Si le localstorage contient le ligne panier,
+    if (this.verificationLocalStorage()) {//Si le localstorage contient le ligne panier,
       this.recuperationLocalStorage();//On récupère le contenu de cette ligne
     }
     //Création d'une ligne temporaire
@@ -44,8 +44,7 @@ export class PanierService {
       else {//Ajout de l'article à la fin du panier
         this.panier.push({ article: articleSupp, quantite: 1 });
       }
-    }
-    else {//Ajout de l'article au début du panier
+    } else {//Ajout de l'article au début du panier
       this.panier[0] = { article: articleSupp, quantite: 1 };
     }
     this.enregistrerPanier();//Enregistrement du panier dans le stockage local
@@ -82,7 +81,7 @@ export class PanierService {
     return this.prixTotal;
   }
 
-  viderStockageLocal(){
+  viderStockageLocal() {
     localStorage.removeItem("panier");
   }
 }
