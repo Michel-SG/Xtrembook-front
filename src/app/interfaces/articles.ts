@@ -4,5 +4,6 @@ export interface Articles {
         resumed?: string,
         prixUnit?: number,
         stock?: number,
-        imageUrl?: string
+        imageUrl?: string,
+        quantite?: number
 }
