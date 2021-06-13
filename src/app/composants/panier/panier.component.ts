@@ -13,6 +13,7 @@ import { PanierService } from 'src/app/services/panier/panier.service';
 export class PanierComponent implements OnInit {
   prixTotal = 0; //Prix total du panier
   panier: Array<Lignepanier> = []; //Le panier
+  stocksDispo = true;
 
   constructor(
     private panierService: PanierService,
@@ -20,16 +21,15 @@ export class PanierComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit(): void {    
+  ngOnInit(): void {
     if (this.panierService.verificationLocalStorage()) {
       //Récupération du panier
       this.panier = this.panierService.recuperationLocalStorage();
     }
-    if (this.panier != null){
+    if (this.panier != null) {
       //Récupération du prix total pour l'afficher
-    this.prixTotal = this.panierService.calculTotal();
+      this.prixTotal = this.panierService.calculTotal();
     }
-    
   }
 
   modifierQuantite(idArticle, op) {
@@ -46,6 +46,9 @@ export class PanierComponent implements OnInit {
   passerCommande() {
     //On vérifie les stocks disponibles
     this.verifStock();
+    if (this.stocksDispo && this.panier.length > 0) {
+      this.validerCommande();
+    }
   }
 
   verifStock() {
@@ -56,15 +59,15 @@ export class PanierComponent implements OnInit {
       });
     })
 
-    let stocksDispo = true;
     //Vérification des disponibilités
     this.panier.forEach(article => {
-      if (article.quantite > article.article.stock){
-        stocksDispo = false;
+      if (article.quantite > article.article.stock) {
+        this.stocksDispo = false;
       }
     })
-    if(stocksDispo && this.panier.length > 0){
-        this.router.navigateByUrl("commande");
-      }
-  }    
+
+  }
+  validerCommande() {
+    this.router.navigateByUrl("commande");
+  }
 }
