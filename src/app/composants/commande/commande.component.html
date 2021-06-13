@@ -1,62 +1,57 @@
 <div class="container marge fw-bold" >
-    <h5 class="text-center mt-4">Complétez vos informations</h5>
+    <h5 class="text-center mt-4">Merci de compléter vos informations</h5>
     <form [formGroup]="signupForm" 
-        class='d-flex flex-column justify-content-center align-items-center fs-auto mb-3'>
+        class='d-flex flex-column justify-content-center align-items-center fs-auto mb-3' (ngSubmit)="validationCommande()">
         <div class="form-group w-50 mb-1">
             <label for="nom">Nom</label>
-            <input type="text" class="form-control" id="nom" placeholder="Entrer votre nom" formControlName="nom">
+            <input type="text" class="form-control" id="nom" placeholder="Entrez votre nom" formControlName="nom">
         </div>
         <div class="form-group w-50 mb-1 ">
-            <label for="prenom">Prenom</label>
-            <input type="text" class="form-control" id="prenom" placeholder="Entrer votre prenom"
+            <label for="prenom">Prénom</label>
+            <input type="text" class="form-control" id="prenom" placeholder="Entrez votre prénom"
                 formControlName="prenom">
         </div>
         <div class="form-group w-50 mb-1">
             <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" placeholder="Entrer votre email"
+            <input type="email" class="form-control" id="email" placeholder="Entrez votre email"
                 formControlName="email">
         </div>
-        <!-- <div class="form-group w-50 mb-2 ">
-            <label for="motDePasse">Password</label>
-            <input type="password" class="form-control" id="motDePasse" placeholder="Entrer votre mot de passe"
-                formControlName="motDePasse">
-        </div> -->
         <div formGroupName="adresse" class="w-100 d-flex flex-column justify-content-center align-items-center mb-2">
             <h5 class="pt-4">Adresse de livraison</h5>
             <div class="form-group w-50 mb-1">
                 <label for="numeroDeVoie">Numéro de voie</label>
-                <input type="number" class="form-control" id="numeroDeVoie" placeholder="Entrer le numéro de voie"
+                <input type="number" class="form-control" id="numeroDeVoie" placeholder="Entrez le numéro de voie"
                     formControlName="numero">
             </div>
             <div class="form-group w-50 mb-1">
                 <label for="typeDeVoie">Type de voie</label>
-                <input type="text" class="form-control" id="typeDeVoie" placeholder="Entrer le type de voie"
+                <input type="text" class="form-control" id="typeDeVoie" placeholder="Entrez le type de voie"
                     formControlName="typeDeVoie">
             </div>
             <div class="form-group w-50 mb-1">
                 <label for="nomDeVoie">Nom de voie</label>
-                <input type="text" class="form-control" id="nomDeVoie" placeholder="Entrer le nom de la voie"
+                <input type="text" class="form-control" id="nomDeVoie" placeholder="Entrez le nom de la voie"
                     formControlName="nomDeVoie">
             </div>
             <div class="form-group w-50 mb-2">
                 <label for="codePostal">Code postal</label>
-                <input type="text" class="form-control" id="codePostal" placeholder="Entrer le code postal"
+                <input type="text" class="form-control" id="codePostal" placeholder="Entrez le code postal"
                     formControlName="codePostal">
             </div>
             <div class="form-group w-50 mb-1">
                 <label for="ville">Ville</label>
-                <input type="text" class="form-control" id="ville" placeholder="Entrer la ville"
+                <input type="text" class="form-control" id="ville" placeholder="Entrez la ville"
                     formControlName="ville">
             </div>
             <div class="form-group w-50 mb-1">
                 <label for="pays">Pays</label>
-                <input type="text" class="form-control" id="pays" formControlName="pays">
+                <input type="text" class="form-control" id="pays" formControlName="pays" placeholder="Entrez le pays">
             </div>
         </div>
-        <button type="submit" class="btn btn-primary fs-auto" [disabled]="signupForm.invalid">Valider</button>
+        <button class="btn btn-primary fs-auto" [disabled]="signupForm.invalid">Valider</button>
     </form>
-    <p class="text-center">Voulez-vous annuler la commande ?
-        <a class="link" [routerLink]="['/article']">Cliquez ici </a>
+    <p class="text-center">Voulez-vous retourner vers votre panier ?
+        <a class="link" [routerLink]="['/panier']">Cliquez ici </a>
     </p>
 </div>
 

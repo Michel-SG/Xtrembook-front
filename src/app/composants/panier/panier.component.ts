@@ -62,7 +62,6 @@ export class PanierComponent implements OnInit {
         stocksDispo = false;
       }
     })
-    console.log(this.panier.length);
     if(stocksDispo && this.panier.length > 0){
         this.router.navigateByUrl("commande");
       }
