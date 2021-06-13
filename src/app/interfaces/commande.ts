@@ -1,9 +1,9 @@
 import { User } from "./user";
 
 export interface Commande {
-    client: User,
-    articles: [{
-        idArticle: number,
+    user: User,
+    products: [{
+        id: number,
         quantite: number
     }]
 }

@@ -76,6 +76,6 @@ export class PanierService {
   }
 
   viderStockageLocal(){
-    //A faire quand la commande est validéee
+    localStorage.removeItem("panier");
   }
 }
