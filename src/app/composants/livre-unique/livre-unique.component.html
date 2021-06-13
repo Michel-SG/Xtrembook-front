@@ -1,16 +1,17 @@
-<div class="container-fluid">
+<div class="container">
     <div class="row marge">
-        <div class="col-sm-12">
-            <h2 class="fs-4 text-center mt-3">{{ this.livre.titre }}</h2>
-            <h6> Par :</h6>
-            <p *ngFor="let a of livre.auteurs">
+        <div><a [routerLink]="['/']">Retour à l'accueil</a></div>
+        <div class="col-sm-12 mb-4">
+            <h2 class="fs-2 text-center mt-3">{{ this.livre.titre }}</h2>
+            <h6 class="ms-4"> Par :</h6>
+            <p class="ms-5 m-0" *ngFor="let a of livre.auteurs">
                 {{ a.prenom }} {{ a.nom }}
             </p>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-4">
-            <img src={{this.livre.imageUrl}} id="image"/>
+            <img src={{this.livre.imageUrl}} id="image" class="rounded-top border rounded bg-white shadow"/>
         </div>
         <div class="col-sm-8">
             <div class="row">
@@ -18,7 +19,8 @@
                     <h4>Prix : {{ this.livre.prixUnit }} €</h4>
                 </div>
                 <div class="col-sm-6">
-                    <button id="pan" (click)="ajouterAuPanier(this.livre)">Ajouter au panier</button>
+                    <button class="btn btn-orange" (click)="ajouterAuPanier(this.livre)"><i
+                            class="fas fa-cart-arrow-down"></i> Ajouter au panier</button>
                 </div>
             </div>
             <h4 id="btop">Description</h4>
@@ -27,20 +29,20 @@
             <h4 id="btop">Informations sur le produit</h4>
             <table style="width: 400px; border: 1px solid">
                 <tr>
-                    <th>Isbn 13</th>
-                    <td>{{this.livre.isbn13}}</td>
+                    <th class="px-2">ISBN 13</th>
+                    <td class="px-2">{{this.livre.isbn13}}</td>
                 </tr>
                 <tr>
-                    <th>Genre</th>
-                    <td> {{ this.livre.genre }} </td>
+                    <th class="px-2">Genre</th>
+                    <td class="px-2"> {{ this.livre.genre }} </td>
                 </tr>
                 <tr>
-                    <th>Format</th>
-                    <td> {{ this.livre.formatLivre }} </td>
+                    <th class="px-2">Format</th>
+                    <td class="px-2"> {{ this.livre.formatLivre }} </td>
                 </tr>
                 <tr>
-                    <th>Editeur</th>
-                    <td> {{ this.livre.nomEditeur }} </td>
+                    <th class="px-2">Éditeur</th>
+                    <td class="px-2"> {{ this.livre.nomEditeur }} </td>
                 </tr>
             </table>
         </div>
