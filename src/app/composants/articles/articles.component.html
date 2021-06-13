@@ -1,10 +1,10 @@
 
 <div class="contain">
-    <form class="d-flex ms-auto justify-content-center" [formGroup]="searchForm" (ngSubmit)="onSubmitSearch() " >
+    <form class="d-flex ms-auto mx-5 justify-content-center" [formGroup]="searchForm" (ngSubmit)="onSubmitSearch() " >
         <input class="form-control me-sm-2 " type="text" placeholder="Recherche par mot-clé" formControlName="parameter">
         <button class="btn btn-secondary my-2 my-sm-0" type="submit" >Recherche</button>
       </form>
-    <h2 class="text-center">Liste des articles</h2>
+    <h2 class="text-center mt-3">Liste des articles</h2>
     <div id="body" *ngIf="reponses == null"  >
         <div *ngFor="let a of articles" id="card" class="border rounded bg-white shadow mb-4 mt-2">
             <div class="mw-100 overflow-hidden">
