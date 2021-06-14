@@ -1,8 +1,9 @@
 <body>
   <div id="commande">
-    <p>
+    <div class="infos mb-4"><a class="liens" [routerLink]="['/']">Retour à l'accueil</a></div>
+    <p class="infos">
       Votre commande a bien été validée. <br />
-      Votre numéro de commande: {{ commandeValidee.numCommande }}
+      Votre numéro de commande : {{ commandeValidee.numCommande }}
     </p>
   </div>
   <div id="facture" class="container-sm">
@@ -45,6 +46,6 @@
         <p> TVA 20% : {{ (prixTotal/1.2*0.2).toFixed(2) }} €</p>
         <p> Prixt total TTC : {{ prixTotal.toFixed(2) }} €</p>
     </div>
-    <button class="btn btn-orange fs-auto " onclick="window.print()">Imprimer</button>
+    <button class="btn btn-orange fs-auto infos" onclick="window.print()"><i class="fas fa-print"></i> Imprimer</button>
     
 </body>

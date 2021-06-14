@@ -66,13 +66,13 @@
         <div class="mt-5">
             <p>Prix total du panier : <span style="font-weight: bold;">{{ prixTotal }}€</span></p>
         </div>
-        <div>
+        <div style="margin-bottom: 14em;">
             <button type=submit class="btn btn-orange" id="btn-valider"><i class="far fa-credit-card"></i>
                 Valider ma commande</button>
         </div>
     </div>
     <ng-template #paniervide>
-        <p>Votre panier est vide. <a class="liens" [routerLink]='["/"]'>Visiter notre catalogue pour ajouter des articles.</a></p>
+        <p style="margin-bottom: 30em;">Votre panier est vide. <a class="liens" [routerLink]='["/"]'>Visiter notre catalogue pour ajouter des articles.</a></p>
     </ng-template>
 
 </form>
