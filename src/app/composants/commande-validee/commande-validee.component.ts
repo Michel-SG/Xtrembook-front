@@ -11,6 +11,7 @@ import { CommandeValideeService } from 'src/app/services/commande-validee/comman
 })
 export class CommandeValideeComponent implements OnInit {
 numCommande = "";
+prixTotal = 0;
 commandeValidee : CommandeValidee = {
   user: {},
   adresse: {},
@@ -27,9 +28,9 @@ commandeValidee : CommandeValidee = {
     this.route.paramMap.subscribe(
       (value) => {
         this.numCommande = value.get('numCommande') ?? '';
-        console.log(this.numCommande)
+       // console.log(this.numCommande)
         this.commandeValideeService.getCommande(this.numCommande).subscribe((res) => {
-          console.log(res[0]);
+          // console.log(res[0]);
           this.commandeValidee.numCommande = res[0].numCommande;
           this.commandeValidee.dateCommande = res[0].dateCommande;
           this.commandeValidee.user.nom = res[0].nom.replace(/\s+/g, '-');
@@ -40,17 +41,18 @@ commandeValidee : CommandeValidee = {
           this.commandeValidee.adresse.codePostal = res[0].codePostal;
           this.commandeValidee.adresse.ville = res[0].ville;
           this.commandeValidee.adresse.pays = res[0].pays;
-          console.log(this.commandeValidee);
+         // console.log(this.commandeValidee);
           console.log(res);
           console.log(Object.keys(res).length);
-          for ( let i =0; i < Object.keys(res).length -1; i++) {
+          for ( let i =0; i < Object.keys(res).length ; i++) {
             this.commandeValidee.articles[i] = {
               titre: res[i].titre,
               quantite: res[i].quantiteCommandee,
-              prixUnit: res[i].prixUnit
+              prixUnit: res[i].prixUnit,
             }
+            this.prixTotal = this.prixTotal + res[i].quantiteCommandee*res[i].prixUnit;
           }
-          // console.log(this.livre.auteurs);
+           console.log(this.commandeValidee);
         });
       });
     }
