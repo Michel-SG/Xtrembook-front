@@ -39,7 +39,6 @@ export class AuthService {
   loginUser(user: User) {
     return new Promise((resolve, reject)=>{
       this.http.post(this.host + "/api/user/login", user).subscribe((response: User)=>{
-        console.log(user)
         localStorage.setItem('userName', JSON.stringify(response[0].prenom))
         this.userId = response[0].idU;
         this.prenom = response[0].prenom;
