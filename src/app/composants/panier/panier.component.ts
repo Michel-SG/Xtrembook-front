@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Articles } from 'src/app/interfaces/articles';
 import { Lignepanier } from 'src/app/interfaces/lignepanier';
 import { ArticleService } from 'src/app/services/articles/article.service';
 import { PanierService } from 'src/app/services/panier/panier.service';

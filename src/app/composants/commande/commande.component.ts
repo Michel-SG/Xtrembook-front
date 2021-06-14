@@ -14,6 +14,7 @@ import { PanierService } from 'src/app/services/panier/panier.service';
   styleUrls: ['./commande.component.css']
 })
 export class CommandeComponent implements OnInit {
+  numcommande = "";
   commande: Commande = {
     user: {},
     products: [{
@@ -72,8 +73,9 @@ export class CommandeComponent implements OnInit {
     this.creationCommande();
     this.commandeService.envoyerCommande(this.commande).then(
       (res) => {
-        this.router.navigate(["commande-validee"]);
+        this.router.navigate(["commande-validee/"+res[1]]);
         this.panierService.viderStockageLocal();
+        console.log(res[1]);
       });
   }
 
