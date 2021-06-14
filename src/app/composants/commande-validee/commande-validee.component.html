@@ -1,1 +1,44 @@
-<p>votre commande a bien été validée</p>
+<body>
+  <div id="commande">
+    <p>
+      Votre commande a bien été validée. <br />
+      Votre numéro de commande: {{ commandeValidee.numCommande }}
+    </p>
+  </div>
+  <div id="facture">
+    <h2>Facture n°: {{ commandeValidee.numCommande }}</h2>
+    <p>Nom : {{ commandeValidee.user.nom }}</p>
+    <p>Prénom : {{ commandeValidee.user.prenom }}</p>
+    <p>Adresse: {{ commandeValidee.adresse.numero }} {{ commandeValidee.adresse.typeDeVoie }} {{ commandeValidee.adresse.nomDeVoie }} {{ commandeValidee.adresse.codePostal }} {{ commandeValidee.adresse.ville }} {{ commandeValidee.adresse.pays }}</p>
+  </div>
+  <ul class="container">
+    <li class="row mb-2 py-2" style="background-color: #7A809E;">
+        <div class="col-4">
+            <h4>Article</h4>
+        </div>
+        <div class="col">
+            <h4 class="text-center">Prix unitaire</h4>
+        </div>
+        <div class="col">
+            <h4 class="text-center">Quantité</h4>
+        </div>
+        <div class="col">
+            <h4 class="text-center">Prix total</h4>
+        </div>
+        <div class="col-1"></div>
+    </li>
+    <li class="row article" *ngFor="let a of commandeValidee.articles" >
+        <div class="col-4 row">
+            {{ a.titre }}
+        </div>
+        <div class="col pt-2 text-center">{{ a.prixUnit }} €</div>
+        <div class="col row text-center">
+            <div class="col pt-2">{{ a.quantite }}</div>   
+        </div>
+        <div class="col text-center pt-2">
+            <p>{{ a.prixUnit*a.quantite }}€</p>
+        </div>
+    </li>
+    </ul>
+    
+</body>
