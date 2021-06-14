@@ -14,6 +14,7 @@ import { LivreUniqueComponent } from './composants/livre-unique/livre-unique.com
 import { CommandeValideeComponent } from './composants/commande-validee/commande-validee.component';
 import { RechercheComponent } from './composants/recherche/recherche.component';
 import { AdministrateurComponent } from './composants/administrateur/administrateur.component';
+import { FooterComponent } from './composants/footer/footer.component';
 
 
 
@@ -32,6 +33,7 @@ import { AdministrateurComponent } from './composants/administrateur/administrat
     CommandeValideeComponent,
     RechercheComponent,
     AdministrateurComponent,
+    FooterComponent,
    
    
    
