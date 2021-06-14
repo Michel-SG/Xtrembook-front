@@ -37,6 +37,11 @@ export class CommandeComponent implements OnInit {
       pays: ['', Validators.required]
     })
   });
+  date = new Date;
+  jour = "";
+  mois = "";
+  annee = "";
+
   constructor(
     private formBuilder: FormBuilder,
     private panierService: PanierService,
@@ -46,6 +51,21 @@ export class CommandeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+  }
+
+  trouverDate(){
+    //Récupération de la date actuelle
+    this.annee = this.date.getFullYear().toString();
+    this.mois = (this.date.getMonth()+1).toString();
+    this.jour = this.date.getDate().toString();
+    //On rajoute les 0 s'il en manque
+    if (this.mois.length < 2){
+      this.mois = "0" + this.mois;
+    }
+    if (this.jour.length < 2){
+      this.jour = "0" + this.jour;
+    }
+    return this.annee + "-" + this.mois + "-" + this.jour;
   }
   
   validationCommande(){
@@ -66,7 +86,7 @@ export class CommandeComponent implements OnInit {
       nom: this.signupForm.value.nom,
       prenom: this.signupForm.value.prenom,
       email: this.signupForm.value.email,
-      date: "2021-06-13",
+      date: this.trouverDate(),
       adresse: {
         numero: this.signupForm.value.adresse.numero,
         typeDeVoie: this.signupForm.value.adresse.typeDeVoie,

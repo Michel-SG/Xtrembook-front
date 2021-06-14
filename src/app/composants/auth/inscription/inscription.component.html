@@ -7,8 +7,8 @@
             <input type="text" class="form-control" id="nom" placeholder="Entrer votre nom" formControlName="nom">
         </div>
         <div class="form-group w-50 mb-1 ">
-            <label for="prenom">Prenom</label>
-            <input type="text" class="form-control" id="prenom" placeholder="Entrer votre prenom"
+            <label for="prenom">Prénom</label>
+            <input type="text" class="form-control" id="prenom" placeholder="Entrer votre prénom"
                 formControlName="prenom">
         </div>
         <div class="form-group w-50 mb-1">
@@ -17,7 +17,7 @@
                 formControlName="email">
         </div>
         <div class="form-group w-50 mb-2 ">
-            <label for="motDePasse">Password</label>
+            <label for="motDePasse">Mot de passe</label>
             <input type="password" class="form-control" id="motDePasse" placeholder="Entrer votre mot de passe"
                 formControlName="motDePasse">
         </div>
@@ -49,13 +49,13 @@
             </div>
             <div class="form-group w-50 mb-1">
                 <label for="pays">Pays</label>
-                <input type="text" class="form-control" id="pays" formControlName="pays">
+                <input type="text" class="form-control" id="pays"  placeholder="Entrer le pays" formControlName="pays">
             </div>
         </div>
-        <button type="submit" class="btn btn-primary fs-auto" [disabled]="signupForm.invalid">Envoyer</button>
+        <button type="submit" class="btn btn-orange fs-auto" [disabled]="signupForm.invalid">Envoyer</button>
         <p class="text-danger" *ngIf="errorMsg"> {{ errorMsg }} </p>
     </form>
     <p class="text-center">Avez-vous déjà un compte ?
-        <a class="link" [routerLink]="['/auth/','connexion']">Clickez ici pour vous connecter</a>
+        <a class="link liens" [routerLink]="['/auth/','connexion']">Cliquez ici pour vous connecter</a>
     </p>
 </div>

@@ -8,3 +8,9 @@ html, body{
 .btn-orange {
     background-color: #EA6A0B;
 }
+.btn-orange:hover {
+    border: 1px solid black;
+}
+.liens, .liens:hover {
+    color: #7A809E;
+}

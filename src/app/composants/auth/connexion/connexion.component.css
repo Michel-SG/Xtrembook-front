@@ -6,8 +6,3 @@ h2 {
     margin-top: 6em;
     margin-bottom: 6em;
 }
-
-button:hover {
-    background-color: green;
-    border: 1px solid green;
-}

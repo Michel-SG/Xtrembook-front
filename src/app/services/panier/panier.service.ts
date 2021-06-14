@@ -11,14 +11,7 @@ export class PanierService {
   constructor() { }
 
   verificationLocalStorage() {
-    if (localStorage.length != 0) {
-      //Lecture du localstorage et récupération du panier
-      for (let i = 0; i < localStorage.length; i++) {
-        let clef = localStorage.key(i);
-        let article = JSON.parse(localStorage.getItem(clef));
-        //Stockage des articles dans le panier
-        this.panier.push({ article: article.article, quantite: article.quantite });
-      }
+    if (localStorage.length != 0 && localStorage.getItem("panier") != null){
       return true;
     }
     return false;
@@ -48,6 +41,7 @@ export class PanierService {
       this.panier[0] = { article: articleSupp, quantite: 1 };
     }
     this.enregistrerPanier();//Enregistrement du panier dans le stockage local
+    
   }
 
   enregistrerPanier() {
