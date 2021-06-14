@@ -5,7 +5,7 @@
       Votre numéro de commande: {{ commandeValidee.numCommande }}
     </p>
   </div>
-  <div id="facture">
+  <div id="facture" class="container-sm">
     <h2>Facture n°: {{ commandeValidee.numCommande }}</h2>
     <p>Nom : {{ commandeValidee.user.nom }}</p>
     <p>Prénom : {{ commandeValidee.user.prenom }}</p>
@@ -23,7 +23,7 @@
             <h4 class="text-center">Quantité</h4>
         </div>
         <div class="col">
-            <h4 class="text-center">Prix total</h4>
+            <h4 class="text-center">Prix total TTC</h4>
         </div>
         <div class="col-1"></div>
     </li>
@@ -31,7 +31,7 @@
         <div class="col-4 row">
             {{ a.titre }}
         </div>
-        <div class="col pt-2 text-center">{{ a.prixUnit }} €</div>
+        <div class="col pt-2 text-center">{{ a.prixUnit.toFixed(2) }} €</div>
         <div class="col row text-center">
             <div class="col pt-2">{{ a.quantite }}</div>   
         </div>
@@ -40,5 +40,11 @@
         </div>
     </li>
     </ul>
+    <div id="total" class="container-sm align-right">
+        <p> Prixt total HT : {{ (prixTotal/1.2).toFixed(2) }} €</p>
+        <p> TVA 20% : {{ (prixTotal/1.2*0.2).toFixed(2) }} €</p>
+        <p> Prixt total TTC : {{ prixTotal.toFixed(2) }} €</p>
+    </div>
+    <button class="btn btn-orange fs-auto " onclick="window.print()">Imprimer</button>
     
 </body>
