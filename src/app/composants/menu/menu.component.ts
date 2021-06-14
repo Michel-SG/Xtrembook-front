@@ -13,6 +13,7 @@ export class MenuComponent implements OnInit {
   prenom: string;
   admin: number;
   authSubscription: Subscription;
+  compteur: number;
 
   constructor(private auth: AuthService) { }
 
@@ -20,6 +21,7 @@ export class MenuComponent implements OnInit {
    
     setInterval(()=>{
       this.prenom = JSON.parse(localStorage.getItem('userName'));
+      this.compteur = JSON.parse(localStorage.getItem('compteur'));
     },200)
     
   }

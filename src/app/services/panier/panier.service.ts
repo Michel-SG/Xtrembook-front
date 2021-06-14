@@ -7,6 +7,7 @@ import { Lignepanier } from 'src/app/interfaces/lignepanier';
 export class PanierService {
   prixTotal = 0;
   panier: Array<Lignepanier> = [];
+  compteur= 0;
 
   constructor() { }
 
@@ -41,6 +42,7 @@ export class PanierService {
       this.panier[0] = { article: articleSupp, quantite: 1 };
     }
     this.enregistrerPanier();//Enregistrement du panier dans le stockage local
+    this.compteurMaj();
     
   }
 
@@ -56,6 +58,7 @@ export class PanierService {
     }
     this.panier[idArticle].quantite = eval(this.panier[idArticle].quantite + op + 1);
     this.enregistrerPanier();
+    this.compteurMaj();
     return true;
   }
 
@@ -64,6 +67,7 @@ export class PanierService {
     //Suppression de l'article dans le panier
     this.panier.splice(idArticle, 1);
     this.enregistrerPanier();
+    this.compteurMaj();
   }
 
   calculTotal() {
@@ -77,5 +81,13 @@ export class PanierService {
 
   viderStockageLocal() {
     localStorage.removeItem("panier");
+  }
+
+  compteurMaj() {
+    this.compteur = 0;
+    for (let i = 0; i < this.panier.length; i++) {
+      this.compteur = this.panier[i].quantite + this.compteur;
+    }
+    localStorage.setItem("compteur", JSON.stringify(this.compteur));
   }
 }
