@@ -31,7 +31,7 @@
         <div class="col-4 row">
             {{ a.titre }}
         </div>
-        <div class="col pt-2 text-center">{{ a.prixUnit }} €</div>
+        <div class="col pt-2 text-center">{{ a.prixUnit.toFixed(2) }} €</div>
         <div class="col row text-center">
             <div class="col pt-2">{{ a.quantite }}</div>   
         </div>
@@ -41,9 +41,9 @@
     </li>
     </ul>
     <div id="total" class="container-sm align-right">
-        <p> Prixt total HT :{{ prixTotal/1.2 }} €</p>
-        <p> TVA 20% :{{ prixTotal/1.2*0.2 }} €</p>
-        <p> Prixt total TTC :{{ prixTotal }} €</p>
+        <p> Prixt total HT : {{ (prixTotal/1.2).toFixed(2) }} €</p>
+        <p> TVA 20% : {{ (prixTotal/1.2*0.2).toFixed(2) }} €</p>
+        <p> Prixt total TTC : {{ prixTotal.toFixed(2) }} €</p>
     </div>
     <button class="btn btn-orange fs-auto " onclick="window.print()">Imprimer</button>
     
