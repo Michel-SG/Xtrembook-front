@@ -13,6 +13,9 @@
             <p class="nav-link text-success m-0" *ngIf='prenom'><i class="far fa-user mx-1"></i>Bonjour {{ prenom }}</p>
           </li>
           <li class="nav-item">
+            <a class="nav-link text-primary" routerLink='articles'>Accueil</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link text-primary" routerLink='admin' *ngIf='admin'>Administration</a>
           </li>
           <li class="nav-item">

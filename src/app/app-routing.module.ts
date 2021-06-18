@@ -15,7 +15,7 @@ import { AdministrateurComponent } from './composants/administrateur/administrat
 const routes: Routes = [
   {path: 'auth/connexion',  component: ConnexionComponent},
   {path: 'auth/inscription', component: InscriptionComponent},
-  {path: 'admin', component: AdministrateurComponent},
+  {path: 'admin', canActivate: [AuthGuard], component: AdministrateurComponent},
   {path: 'article', component: ArticlesComponent},
   {path: 'livre/:referenceArticle', component: LivreUniqueComponent},
   {path: 'commande', canActivate: [AuthGuard], component: CommandeComponent},
